@@ -127,13 +127,15 @@ This will ask you for a password, and then will allow you to remote connect in. 
 
 Rsync is a useful command for syncing files between two devices. In our case, we are going to be writing code on our devices and will be transfering it to our server (the VM). We don't want to have to manually move the files every time we make a change, so we can write a little script to run every time to update the files on the server using rsync.
 
+### How to use rsync
+
 `rsync -rvz -e 'ssh -p [port number]' /some/path/on/our/device [user@]host:/path/on/the/server`
 
 So for example I can use the following:
 
 `rsync -rvz -e 'ssh -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject`
 
-### But wait I don't want to have to type in my password each time I sync!
+## But wait I don't want to have to type in my password each time I sync!
 
 Yeah I don't either, this is why we have SSH Keys. If you own the key, it will authenticate you on a server. 
 
@@ -190,6 +192,31 @@ rsync -rvz -e 'ssh -i ~/.ssh/localhost_VM -p 2222' ~/Documents/G2T/myProject g2t
 3. Change the permissions on the file so it is executable. `chmod +x syncScript.sh`
 
 Now we can simply run `./syncScript.sh` anytime we want to sync our project to a folder.
+
+## GitHub
+We will be using github to store the code you work on in class on the web. Once you get more experienced it is more useful to know how to use the git commands, but for now we will be using the github desktop client which can be found [here](https://desktop.github.com/). 
+
+### Setting up git
+1. Download it and run the installer
+2. Log in
+3. Create a new repository (file -> new repository) 
+    
+    a. Call the repository your project name
+    
+    b. Give it a description (what is this code)
+
+    c. Point it to the directory where your code is on the machine
+
+4. Create the repository
+
+### Using git
+This is not the best way of using git, as there is a workflow for when you are working on a project with other people. But for now we will be using it to back up our code. 
+
+When you make changes to any code in the git directory, the changes are reflected in the git client. 
+
+When you have made a sufficient amount of changes, you can choose which files to commit to the master branch (on your computer) and simply click the `commit to master` button. This should be done for every problem that you solve (I normally do it for each bug I solve).
+
+When you want to push your changes to github (so they are saved outside your machine) you can click on the `push origin` button. You should now be able to visit your git page and view the changes.
 
 ---
 <small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small>
