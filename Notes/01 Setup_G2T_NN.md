@@ -96,5 +96,100 @@ We will go into creating users and databases later in the course.
     ```
 Now if you go to `localhost:8080/test.php` the PHP info page should show up. **Don't leave this page up after this as there is information about the server in this file**
 
+# Setting up your local device for development
+
+For the following example we are going to be using unix commands to transfer and connect to our server/VM. Since we need to use SSH and rsync to connect and transfer files, the 'easiest' way of getting these tools is to install the WSL or [windows subsystem for linux ](https://docs.microsoft.com/en-us/windows/wsl/install-win10) or, if you are working in an environment where you cannot install WSL, you can use [Cygwin](https://www.cygwin.com/). Since in the current environment we cannot install WSL, the following steps will outline the cygwin installation process.
+
+1. Go to the Cygwin site and download the Windows executable
+2. Follow the instructions for the basic installation, until you get to the avavilble download sites
+3. Choose a domain to download from (e.g. mirroir.csclub.waterloo.ca)
+4. Change the view from *pending* to *not installed*
+5. Search for `rsync` and `openssh`
+6. For `rsync` and `openssh`change the 'new' column from `skip` to the version number
+
+We can now run cygwin and use SSH, and rsync on our system. 
+
+## SSH into your box
+Earlier we port-forwarded both port 80 (HTTP) and 22 (SSH) on our virtual machine to ports 8080 and 2222. From the previous steps we can see that we used port 8080 to connect to the sample website we have created, but why would we want to port forward 22? 
+
+In most 'real' situations we are often not able to plug a keyboard and monitor into the machine where our webserver is running. Some servers are even hosted in other countries. So how would we connect and manage these servers without having a direct connection to them? Simple! Use SSH!
+
+### How to use SSH
+`ssh [username@]host [-p portNumber]`
+
+An example for how I would connect to my server:
+
+`ssh g2t@localhost -p 2222`
+
+This will ask you for a password, and then will allow you to remote connect in. You will be able to use the same commands as when you were logged into the VM.
+
+## Setting up rsync
+
+Rsync is a useful command for syncing files between two devices. In our case, we are going to be writing code on our devices and will be transfering it to our server (the VM). We don't want to have to manually move the files every time we make a change, so we can write a little script to run every time to update the files on the server using rsync.
+
+`rsync -rvz -e 'ssh -p [port number]' /some/path/on/our/device [user@]host:/path/on/the/server`
+
+So for example I can use the following:
+
+`rsync -rvz -e 'ssh -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject`
+
+### But wait I don't want to have to type in my password each time I sync!
+
+Yeah I don't either, this is why we have SSH Keys. If you own the key, it will authenticate you on a server. 
+
+
+#### On the client
+
+1. Create a new SSH key pair on your local system `ssh-keygen -t rsa -b 4096 -C 'localhost' -f localhost_VM `
+2. Copy the public (.pub) key to the server
+`scp -P 2222 ./localhost_VM.pub g2t@localhost:~/.ssh/`
+
+3. Move your private key to your ~/.ssh folder 
+`mv ./localhost_VM ~/.ssh/`
+
+#### On the server
+
+4. Put the public key into the authorized_keys file `cat ~/.ssh/localhost_VM.pub > ~/.ssh/authorized_keys`
+
+5. Change the SSH settings on the server to use the SSH key instead of a password `vim /etc/ssh/sshd_config`
+
+```
+    ## Change this line
+    
+    PasswordAuthentication yes
+
+    ## to say 
+
+    PasswordAuthentication no
+
+    ## And remove the pound sign from
+
+    #PubkeyAuthentication yes
+
+```
+
+6. Restart ssh `sudo systemctl restart ssh`
+
+Now you should be able to log into the server using the private ssh key instead of a password. An example of this is:
+
+`ssh -i '~/.ssh/localhost_VM' -p 2222 g2t@localhost`
+
+Or if you are using the rsync command you can now run:
+
+`rsync -rvz -e 'ssh -i ~/.ssh/localhost_VM -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject`
+
+## Setting up a script for this command
+
+So anytime we want to sync our project from the desktop to our server, we can run that command. But it is really long, so we can put it in a shell script instead, and just run the shell script when we want to sync our project. 
+
+1. Create a new file called syncScript.sh `touch syncScript.sh`
+2. Edit that file `vim syncScript.sh` and add our code:
+```
+rsync -rvz -e 'ssh -i ~/.ssh/localhost_VM -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject
+```
+3. Change the permissions on the file so it is executable. `chmod +x syncScript.sh`
+
+Now we can simply run `./syncScript.sh` anytime we want to sync our project to a folder.
+
 ---
 <small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small>

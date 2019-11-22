@@ -1,0 +1,1 @@
+rsync -rvz -e 'ssh -i ~/.ssh/localhost_VM -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject
