@@ -115,11 +115,11 @@ Earlier we port-forwarded both port 80 (HTTP) and 22 (SSH) on our virtual machin
 In most 'real' situations we are often not able to plug a keyboard and monitor into the machine where our webserver is running. Some servers are even hosted in other countries. So how would we connect and manage these servers without having a direct connection to them? Simple! Use SSH!
 
 ### How to use SSH
-`ssh [username@]host [-p portNumber]`
+`ssh [-p portNumber] [username@]host`
 
 An example for how I would connect to my server:
 
-`ssh g2t@localhost -p 2222`
+`ssh -p 2222 g2t@localhost`
 
 This will ask you for a password, and then will allow you to remote connect in. You will be able to use the same commands as when you were logged into the VM.
 
