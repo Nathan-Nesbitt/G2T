@@ -135,51 +135,6 @@ So for example I can use the following:
 
 `rsync -rvz -e 'ssh -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject`
 
-## But wait I don't want to have to type in my password each time I sync!
-
-Yeah I don't either, this is why we have SSH Keys. If you own the key, it will authenticate you on a server. 
-
-
-#### On the client
-
-1. Create a new SSH key pair on your local system `ssh-keygen -t rsa -b 4096 -C 'localhost' -f localhost_VM `
-2. Copy the public (.pub) key to the server
-`scp -P 2222 ./localhost_VM.pub g2t@localhost:~/.ssh/`
-
-3. Move your private key to your ~/.ssh folder 
-`mv ./localhost_VM ~/.ssh/`
-
-#### On the server
-
-4. Put the public key into the authorized_keys file `cat ~/.ssh/localhost_VM.pub > ~/.ssh/authorized_keys`
-
-5. Change the SSH settings on the server to use the SSH key instead of a password `vim /etc/ssh/sshd_config`
-
-```
-    ## Change this line
-    
-    PasswordAuthentication yes
-
-    ## to say 
-
-    PasswordAuthentication no
-
-    ## And remove the pound sign from
-
-    #PubkeyAuthentication yes
-
-```
-
-6. Restart ssh `sudo systemctl restart ssh`
-
-Now you should be able to log into the server using the private ssh key instead of a password. An example of this is:
-
-`ssh -i '~/.ssh/localhost_VM' -p 2222 g2t@localhost`
-
-Or if you are using the rsync command you can now run:
-
-`rsync -rvz -e 'ssh -i ~/.ssh/localhost_VM -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject`
-
 ## Setting up a script for this command
 
 So anytime we want to sync our project from the desktop to our server, we can run that command. But it is really long, so we can put it in a shell script instead, and just run the shell script when we want to sync our project. 
@@ -187,7 +142,7 @@ So anytime we want to sync our project from the desktop to our server, we can ru
 1. Create a new file called syncScript.sh `touch syncScript.sh`
 2. Edit that file `vim syncScript.sh` and add our code:
 ```
-rsync -rvz -e 'ssh -i ~/.ssh/localhost_VM -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject
+rsync -rvz -e 'ssh -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/myProject
 ```
 3. Change the permissions on the file so it is executable. `chmod +x syncScript.sh`
 
