@@ -5,7 +5,7 @@ This is not intended as a walkthrough but rather a brief overview of the topics 
 ## What does it cover? 
 - A simple setup of a VirtualBox VM with a LAMP stack.  
 - Introduction to linux filestructure and commands.
-- Introduction to [HTML](Notes/03 HTML_G2T_NN.html)
+- Introduction to [HTML](https://nathan-nesbitt.github.io/G2T/Notes/03%20HTML_G2T_NN.html)
 - Introduction to CSS
 - Introduction to JavaScript
 - Introduction to PHP
