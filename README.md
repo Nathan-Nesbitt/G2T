@@ -3,10 +3,10 @@ These are personal notes for the Web Development class I teach.
 This is not intended as a walkthrough but rather a brief overview of the topics that I cover.
 
 ## What does it cover? 
-- A simple setup of a VirtualBox VM with a LAMP stack.  
-- Introduction to linux filestructure and commands.
+- [A simple setup of a VirtualBox VM with a LAMP stack](https://nathan-nesbitt.github.io/G2T/Notes/01%20Setup_G2T_NN.html).  
+- Introduction to [linux commands](https://nathan-nesbitt.github.io/G2T/Notes/02%20Commands_G2T_NN.html).
 - Introduction to [HTML](https://nathan-nesbitt.github.io/G2T/Notes/03%20HTML_G2T_NN.html)
-- Introduction to CSS
+- Introduction to [CSS](https://nathan-nesbitt.github.io/G2T/Notes/04%20CSS_G2T_NN.html)
 - Introduction to JavaScript
 - Introduction to PHP
 - Introduction to MySQL
