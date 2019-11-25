@@ -234,6 +234,12 @@ Puts a horizontal line through the page
     </tr>
 </table>
 
+### `<div>`
+A div is what we will be using to create divisions in our page. 
+<div style="float: right">
+    <p>This allows me to put objects in weird places</p>
+    <p>And do it consistantly for all objects inside of a div</p>
+</div>
 
 ## Forms and Inputs
 
