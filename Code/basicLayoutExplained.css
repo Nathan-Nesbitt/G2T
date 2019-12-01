@@ -1,0 +1,38 @@
+
+#red, #red2, #red3 {
+    background-color: red ;
+    padding: 10px;
+    min-height: 300px;
+}
+
+#green, #green2, #green3 {
+    background-color: green ;
+    padding: 10px;
+    margin: 10px;
+}
+
+#black, #black2 {
+    background-color: black ;
+    padding: 10px;
+    margin: 20px;
+}
+
+#brown, #brown2, #brown3, 
+#brown4, #brown5, #brown6 {
+    background-color: burlywood ;
+    margin: 10px;
+}
+
+#purple, #purple2, #purple3, 
+#purple4, #purple5, #purple6, 
+#purple7, #purple8, #purple9, 
+#purple10, #purple11, #purple12 {
+    background-color: purple ;
+    margin: 10px;
+} 
+
+
+#orange, #orange2 {
+    background-color: orange ;
+    margin: 10px;
+} 
