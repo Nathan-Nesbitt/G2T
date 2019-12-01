@@ -1,6 +1,36 @@
-
-#green, #green2, #green3 {
-    background-color: green ;
-    margin: 10px;
-    height: 100px;
+.blue {
+    background-color: aqua;
 }
+.red {
+    background-color: red ;
+    padding: 10px;
+    min-height: 300px;
+}
+
+.green {
+    background-color: green ;
+    padding: 10px;
+    margin: 10px;
+}
+
+.black {
+    background-color: black ;
+    padding: 10px;
+    margin: 20px;
+}
+
+.brown {
+    background-color: burlywood ;
+    margin: 10px;
+}
+
+.purple {
+    background-color: purple ;
+    margin: 10px;
+} 
+
+
+.orange {
+    background-color: orange ;
+    margin: 10px;
+} 
