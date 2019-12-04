@@ -12,10 +12,10 @@ This is not intended as a walkthrough but rather a brief overview of the topics 
 - Introduction to MySQL
 
 ## Assignments
-There are also some [assignments](https://nathan-nesbitt.github.io/G2T/Assignments/).
+There are also some [assignments](https://github.com/Nathan-Nesbitt/G2T/tree/master/Assignments).
 
 ## Sample Code
-I will try to post as much of the [code](https://nathan-nesbitt.github.io/G2T/Code/) that I write as possible so you can use it for reference.
+I will try to post as much of the [code](https://github.com/Nathan-Nesbitt/G2T/tree/master/Code) that I write as possible so you can use it for reference.
 
 *If you would like to use these notes, please contact me.* 
 
