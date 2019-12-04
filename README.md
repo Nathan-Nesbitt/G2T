@@ -11,6 +11,12 @@ This is not intended as a walkthrough but rather a brief overview of the topics 
 - Introduction to PHP
 - Introduction to MySQL
 
+## Assignments
+There are also some [assignments](https://nathan-nesbitt.github.io/G2T/Assignments/).
+
+## Sample Code
+I will try to post as much of the [code](https://nathan-nesbitt.github.io/G2T/Code/) that I write as possible so you can use it for reference.
+
 *If you would like to use these notes, please contact me.* 
 
 ---
