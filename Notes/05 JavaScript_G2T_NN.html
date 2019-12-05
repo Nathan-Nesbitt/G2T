@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>05_JavaScript_NN.md</title>
+<title>05 JavaScript_G2T_NN.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -648,20 +648,44 @@ document.write(myItem);
 <p>We can catch an event when it happens and run some code based on it.</p>
 <p>Some of the possible events that can be handled are:</p>
 <ul>
-<li>onclick</li>
-<li>ondbclick</li>
-<li>onmouseover</li>
-<li>onkeypress</li>
-<li>onchange</li>
-<li>onselect</li>
-<li>onsubmit</li>
+<li><code>onclick</code> -     If something has been single clicked</li>
+<li><code>ondblclick</code> -  If something has been double clicked</li>
+<li><code>onmouseover</code> - If the user's mouse is over an element</li>
+<li><code>onkeypress</code> -  If a key has been pressed</li>
+<li><code>onchange</code> -    An HTML element has been changed</li>
+<li><code>onkeydown</code> -   When the key has</li>
+<li><code>onselect</code> -    When an element has been selected</li>
+<li><code>onsubmit</code> -    Form has been submitted</li>
+<li><code>onload</code> -      Browser has loaded page</li>
 </ul>
-<h3 id="event-listener">Event Listener</h3>
-<p>If we are going to do something when an event happens we can use the <code>document.addEventListener</code> function. This uses</p>
 <p>And this is the event that happens when the page loads (this will be useful for assignment 2)</p>
-<ul>
-<li>DOMContentLoaded</li>
-</ul>
+<h3 id="event-listener">Event Listener</h3>
+<p>If we are going to do something when an event happens we can use the <code>document.addEventListener</code> function. This takes in one of the events that could happen and a function that will be called when the event happens.</p>
+<p>For example you could have an click listener, which will run when a button is pushed inside on the document.</p>
+<pre class="hljs"><code><div>document.addEventListener(&quot;click&quot;, function(){
+        document.write(&quot;Hello World!&quot;); 
+    });
+</div></code></pre>
+<p>Or for the double click you could use</p>
+<pre class="hljs"><code><div>document.addEventListener(&quot;dblclick&quot;, function(){
+        document.write(&quot;Hello World!&quot;); 
+    });
+</div></code></pre>
+<p>Or if you want to check to see if the page loaded correctly you can use:</p>
+<pre class="hljs"><code><div>document.addEventListener('DOMContentLoaded', function(){
+    document.write(&quot;Page Loaded Successfully.&quot;); 
+});
+</div></code></pre>
+<h3 id="getting-an-element">Getting an element</h3>
+<p>If we want to work with HTML elements we need to be able to find and save them as variables. There are a couple of functions that will allow you to find them.</p>
+<p>If you want to get one based on it's ID you can use the <code>getElementById()</code></p>
+<p>Or if you want to get an element based on it's class you can use the <code>getElementByClass()</code></p>
+<p>Or by the tagname using <code>getElementsByTagName()</code>.</p>
+<pre class="hljs"><code><div>document.getElementById(&quot;someId&quot;);
+document.getElementByClass(&quot;someClass&quot;);
+document.getElementsByTagName(&quot;p&quot;);
+
+</div></code></pre>
 
 </body>
 </html>
