@@ -7,7 +7,7 @@ This is not intended as a walkthrough but rather a brief overview of the topics 
 - Introduction to [linux commands](https://nathan-nesbitt.github.io/G2T/Notes/02%20Commands_G2T_NN.html).
 - Introduction to [HTML](https://nathan-nesbitt.github.io/G2T/Notes/03%20HTML_G2T_NN.html)
 - Introduction to [CSS](https://nathan-nesbitt.github.io/G2T/Notes/04%20CSS_G2T_NN.html)
-- Introduction to JavaScript
+- Introduction to [JavaScript](https://nathan-nesbitt.github.io/G2T/Notes/05%20JavaScript_G2T_NN.html)
 - Introduction to PHP
 - Introduction to MySQL
 
