@@ -312,17 +312,58 @@ We can catch an event when it happens and run some code based on it.
 
 Some of the possible events that can be handled are:
 
-- onclick
-- ondbclick
-- onmouseover
-- onkeypress
-- onchange
-- onselect
-- onsubmit
-
-### Event Listener
-If we are going to do something when an event happens we can use the `document.addEventListener` function. This uses 
-
+- `onclick` -     If something has been single clicked
+- `ondblclick` -  If something has been double clicked
+- `onmouseover` - If the user's mouse is over an element
+- `onkeypress` -  If a key has been pressed
+- `onchange` -    An HTML element has been changed
+- `onkeydown` -   When the key has 
+- `onselect` -    When an element has been selected
+- `onsubmit` -    Form has been submitted
+- `onload` -      Browser has loaded page
+ 
 And this is the event that happens when the page loads (this will be useful for assignment 2)
 
-- DOMContentLoaded
+### Event Listener
+If we are going to do something when an event happens we can use the `document.addEventListener` function. This takes in one of the events that could happen and a function that will be called when the event happens. 
+
+For example you could have an click listener, which will run when a button is pushed inside on the document.
+
+```
+document.addEventListener("click", function(){
+        document.write("Hello World!"); 
+    });
+```
+
+Or for the double click you could use
+
+```
+document.addEventListener("dblclick", function(){
+        document.write("Hello World!"); 
+    });
+```
+
+Or if you want to check to see if the page loaded correctly you can use:
+
+```
+document.addEventListener('DOMContentLoaded', function(){
+    document.write("Page Loaded Successfully."); 
+});
+```
+
+### Getting an element 
+If we want to work with HTML elements we need to be able to find and save them as variables. There are a couple of functions that will allow you to find them.
+
+If you want to get one based on it's ID you can use the `getElementById()` 
+
+Or if you want to get an element based on it's class you can use the `getElementByClass()` 
+
+
+Or by the tagname using `getElementsByTagName()`.
+
+```
+document.getElementById("someId");
+document.getElementByClass("someClass");
+document.getElementsByTagName("p");
+
+```
