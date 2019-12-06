@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<!--
+    This is an HTML file created by Nathan Nesbitt
+    Part of G2T - https://github.com/Nathan-Nesbitt/G2T
+-->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Imports for bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <!-- Custom Stylesheet for this page -->
+    <link rel="stylesheet" type="text/css" href="Assignment 1_NN.css">
+
+    <!-- Additional Information about the page -->
+    <title>Nathan's Profile Site</title>
+
+</head>
+
+<body>
+    <div class="container blue">
+        <!-- Here is my first "red" div -->
+        <div class="col red">
+            <!-- To center text/images, you use text-center in bootstrap on the div -->
+            <div class="col-sm green text-center">
+                <img src="https://avatars3.githubusercontent.com/u/12765521?s=460&v=4">
+            </div>
+            <!-- To center <div>, you use row mx-auto justify-content-center to make any divs inside of it align to the center. This allows you to constrain how big the text can become before it wraps. -->
+            <div class="row mx-auto justify-content-center green">
+                <div class="col-sm-8">
+                    <p>This is some information about myself. Stored in a different div. This can be a long paragraph,
+                        and it should stay pretty much in the center. </p>
+                </div>
+            </div>
+        </div>
+        <!-- Here is my second "red" div -->
+        <div class="col red">
+            <!-- This contains the project info and image/link boxes -->
+            <div class="row black">
+                <div class="col-sm brown">
+                    <h1>Project 1</h1>
+                    <p>
+                        This is a project that I have been working on for
+                        so long. It is the most impactful work of art that I have ever produced, and has made the pope
+                        weap tears of joy. (This is clearly not a project created by me, it is simply an example.) Image
+                        source is found in the source.
+                    </p>
+                </div>
+                <div class="col-sm brown text-center">
+                    <a href="https://www.facebook.com/"><img
+                            src="https://neilpatel.com/wp-content/uploads/2019/06/facebook.png"></a>
+                </div>
+            </div>
+            <!-- This contains the project info and image/link boxes -->
+            <div class="row black">
+                <div class="col-sm brown text-center">
+                    <a href="https://twitter.com/"><img
+                            src="https://techcrunch.com/wp-content/uploads/2017/12/gettyimages-876768474.jpg?w=730&crop=1"></a>
+                </div>
+                <div class="col-sm brown">
+                    <h1>Project 2</h1>
+                    <p>
+                        This is the other project, a beautiful meme of a project. It displays my hardest work and the
+                        full extent of my computational knowledge. Years of time has lead to
+                        the creation of this beauty. (This is clearly not a project created by me, it is simply an
+                        example.) Image source is found in the source.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Here is my third "red" div -->
+        <div class="row mx-auto red">
+            <div class="col orange">
+                <div class="col-sm text-center">
+                    <h2>How to contact me?</h2>
+                </div>
+                <form>
+                    <div class="col-sm form-group">
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                    <div class="col-sm form-group">
+                        <input type="text" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="col-sm form-group">
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+                    </div>
+                    <div class="col-sm form-group">
+                        <input type="text" class="form-control" id="message" placeholder="Message">
+                    </div>
+                    <div class="col-sm form-group">
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col orange text-center">
+                <div class="col-sm">
+                    <h2>Where am I?</h2>
+                </div>
+                <div class="col-sm">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163116.76340926555!2d-119.4802402792318!3d50.235486915671444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537dd8e746d9fce3%3A0x8fd4e1b6add1e987!2sVernon%2C%20BC!5e1!3m2!1sen!2sca!4v1575327448990!5m2!1sen!2sca"
+                        width="400" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

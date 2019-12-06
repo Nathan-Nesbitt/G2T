@@ -1,0 +1,57 @@
+/*
+    This is a CSS file created by Nathan Nesbitt
+    Part of G2T - https://github.com/Nathan-Nesbitt/G2T
+*/
+
+.blue {
+    background-color: #9f7e69;
+}
+.red {
+    background-color: #ffeee2 ;
+    padding: 10px;
+    margin-bottom: 5px;
+    min-height: 300px;
+}
+
+.green {
+    background-color: #ffeee2;
+    padding: 10px;
+}
+
+.black {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: thin;
+    padding: 10px;
+    margin: 20px;
+}
+
+.brown {
+    margin: 10px;
+}
+
+/* This modifies the images within the brown class */
+.brown img {
+    max-width: 350px;
+    border-radius: 10px;
+    background-color:#f7ffe0;
+}
+
+.brown p {
+    background-color:#fdcca9;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.purple {
+    background-color: #ffeee2 ;
+    margin: 10px;
+} 
+
+
+.orange {
+    background-color: #ffeee2;
+    margin: 10px;
+    padding: 10px;
+} 
