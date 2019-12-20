@@ -8,7 +8,7 @@ This is not intended as a walkthrough but rather a brief overview of the topics 
 - Introduction to [HTML](https://nathan-nesbitt.github.io/G2T/Notes/03%20HTML_G2T_NN.html)
 - Introduction to [CSS](https://nathan-nesbitt.github.io/G2T/Notes/04%20CSS_G2T_NN.html)
 - Introduction to [JavaScript](https://nathan-nesbitt.github.io/G2T/Notes/05%20JavaScript_G2T_NN.html)
-- Introduction to PHP
+- Introduction to [PHP](https://nathan-nesbitt.github.io/G2T/Notes/06%20PHP_G2T_NN.html)
 - Introduction to MySQL
 
 ## Assignments
