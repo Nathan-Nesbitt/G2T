@@ -149,6 +149,7 @@ $_COOKIE
 $_SESSION
 $_REQUEST
 ```
+
 ## Conditionals
 ```
 $age
@@ -206,3 +207,96 @@ helloWorld();
 ```
 
 ## MySQL
+
+If you want to work with MySQL in PHP you can use the mysqli library which can be found on the [PHP site](https://www.php.net/manual/en/book.mysqli.php).
+
+
+### 1. Create a connection to a database
+
+```
+<?php
+    $username = "<yourUsername>";
+    $password = "<yourPassword>";
+    $database = "<yourDatabase>";
+    $server = "localhost";
+
+    $connection = new mysqli($server, $username, $password, $database);
+?>
+```
+
+### 2. Create a prepared statement and bind the parameters
+
+The `?` implies a spot that will be filled with a variable.
+
+```
+// Creates the prepared statement
+$query = $connection->prepare("INSERT INTO <table> (<column1>, <column2>) VALUES (?, ?)");
+
+// Binds the parameters into the `?` //
+$query->bind_param("ss", '<value1>', '<value2>');
+
+```
+
+### 3. Execute and get the values back (if you are expecting data back)
+
+```
+// Execute the statement //
+$query->execute();
+
+// get the result //
+$result = $query->get_result();
+```
+
+### 4. Itterating through the values from the query
+
+```
+while($row = $result->fetch_assoc()){
+    echo($row['<column1>']);
+    echo($row['<column2>']);
+}
+```
+
+For example a completed program to query all phone numbers from a database `phoneNumbers` that has `name` and `phoneNumber` columns/fields where `name` is `nathan`:
+
+```
+    // Define our variables //
+
+    $username = "nathan";
+    $password = "password";
+    $database = "phoneNumbers";
+    $server = "localhost";
+
+    // Creates a connection //
+    
+    $connection = new mysqli($server, $username, $password, $database);
+
+    // Creates the prepared statement //
+    
+    $query = $connection->prepare("SELECT * FROM phoneNumbers WHERE name = ?");
+    
+    // Binds the parameters into the `?` //
+    
+    $query->bind_param("s", 'nathan');
+
+    // Execute the statement //
+    
+    $query->execute();
+
+    // get the result //
+    
+    $result = $query->get_result();
+
+    // Itterate through the results //
+
+    while($row = $result->fetch_assoc()){
+        echo($row['phoneNumber']);
+    }
+
+    // Closes the connection
+    $connection->close();
+
+
+```
+
+---
+<small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small>

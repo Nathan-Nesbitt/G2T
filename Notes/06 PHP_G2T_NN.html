@@ -573,6 +573,80 @@ do {
 helloWorld();
 </div></code></pre>
 <h2 id="mysql">MySQL</h2>
+<p>If you want to work with MySQL in PHP you can use the mysqli library which can be found on the <a href="https://www.php.net/manual/en/book.mysqli.php">PHP site</a>.</p>
+<h3 id="1-create-a-connection-to-a-database">1. Create a connection to a database</h3>
+<pre class="hljs"><code><div>&lt;?php
+    $username = &quot;&lt;yourUsername&gt;&quot;;
+    $password = &quot;&lt;yourPassword&gt;&quot;;
+    $database = &quot;&lt;yourDatabase&gt;&quot;;
+    $server = &quot;localhost&quot;;
+
+    $connection = new mysqli($server, $username, $password, $database);
+?&gt;
+</div></code></pre>
+<h3 id="2-create-a-prepared-statement-and-bind-the-parameters">2. Create a prepared statement and bind the parameters</h3>
+<p>The <code>?</code> implies a spot that will be filled with a variable.</p>
+<pre class="hljs"><code><div>// Creates the prepared statement
+$query = $connection-&gt;prepare(&quot;INSERT INTO &lt;table&gt; (&lt;column1&gt;, &lt;column2&gt;) VALUES (?, ?)&quot;);
+
+// Binds the parameters into the `?` //
+$query-&gt;bind_param(&quot;ss&quot;, '&lt;value1&gt;', '&lt;value2&gt;');
+
+</div></code></pre>
+<h3 id="3-execute-and-get-the-values-back-if-you-are-expecting-data-back">3. Execute and get the values back (if you are expecting data back)</h3>
+<pre class="hljs"><code><div>// Execute the statement //
+$query-&gt;execute();
+
+// get the result //
+$result = $query-&gt;get_result();
+</div></code></pre>
+<h3 id="4-itterating-through-the-values-from-the-query">4. Itterating through the values from the query</h3>
+<pre class="hljs"><code><div>while($row = $result-&gt;fetch_assoc()){
+    echo($row['&lt;column1&gt;']);
+    echo($row['&lt;column2&gt;']);
+}
+</div></code></pre>
+<p>For example a completed program to query all phone numbers from a database <code>phoneNumbers</code> that has <code>name</code> and <code>phoneNumber</code> columns/fields where <code>name</code> is <code>nathan</code>:</p>
+<pre class="hljs"><code><div>    // Define our variables //
+
+    $username = &quot;nathan&quot;;
+    $password = &quot;password&quot;;
+    $database = &quot;phoneNumbers&quot;;
+    $server = &quot;localhost&quot;;
+
+    // Creates a connection //
+    
+    $connection = new mysqli($server, $username, $password, $database);
+
+    // Creates the prepared statement //
+    
+    $query = $connection-&gt;prepare(&quot;SELECT * FROM phoneNumbers WHERE name = ?&quot;);
+    
+    // Binds the parameters into the `?` //
+    
+    $query-&gt;bind_param(&quot;s&quot;, 'nathan');
+
+    // Execute the statement //
+    
+    $query-&gt;execute();
+
+    // get the result //
+    
+    $result = $query-&gt;get_result();
+
+    // Itterate through the results //
+
+    while($row = $result-&gt;fetch_assoc()){
+        echo($row['phoneNumber']);
+    }
+
+    // Closes the connection
+    $connection-&gt;close();
+
+
+</div></code></pre>
+<hr>
+<p><small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small></p>
 
 </body>
 </html>
