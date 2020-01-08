@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>07_MySQL_G2T_NN.md</title>
+<title>07 SQL_G2T_NN.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -682,6 +682,33 @@ DROP TABLE &lt;tableName&gt;;
 <p>For example if we had two tables of students and ages which both had a Unique Identifier for a student called <code>ID</code>, we could join them together by doing:</p>
 <pre class="hljs"><code><div>SELECT * FROM students, studentAges WHERE students.ID = studentAges.ID;
 </div></code></pre>
+<h3 id="searching-for-similar-values">Searching for similar values</h3>
+<p>In SQL there is the <code>LIKE</code> operator, which allows you to search the database for a value that is similar to some input.</p>
+<p>There are 2 wildcards that can be used with the LIKE operator:</p>
+<h4 id="zero-to-many-values">'%' - Zero to many values</h4>
+<p>If you want to match any range of values (e.g. I know that someones name ends with SAR) we can use the <code>%</code> wildcard.</p>
+<p>So if we know that someone's name ends in 'SAR' we can find them in the database by doing:</p>
+<pre class="hljs"><code><div>LIKE &quot;%SAR&quot;
+</div></code></pre>
+<p>Or if it starts with 'SAR' we can do:</p>
+<pre class="hljs"><code><div>LIKE &quot;SAR%&quot;
+</div></code></pre>
+<p>Or if we only know that the name contains SAR in some place, we can say:</p>
+<pre class="hljs"><code><div>LIKE &quot;%SAR%&quot;
+</div></code></pre>
+<h4 id="one-value">'_' - One value</h4>
+<p>If you want to match exactly 1 value (e.g. if we know 3/4 of the characters in someone's name) we can use the <code>_</code> wildcard.</p>
+<p>So if we wanted to find the names that are 4 letters and start with 'SAR' we could use:</p>
+<pre class="hljs"><code><div>LIKE &quot;SAR_&quot;
+</div></code></pre>
+<p>For example if I wanted to search for someone in my contact list who's name starts with 'Sar' I could use:</p>
+<pre class="hljs"><code><div>SELECT * FROM contactList WHERE name LIKE &quot;SAR%&quot;;
+</div></code></pre>
+<p>This searches the database for any names in the contactList table that start with <code>SAR</code>.</p>
+<p>Note that we can also use these wildcards together! So you could check the 2nd-4th character matches 'SAR' using:</p>
+<pre class="hljs"><code><div>SELECT * FROM contactList WHERE name LIKE &quot;_SAR%&quot;;
+</div></code></pre>
+<p>As any character could match the <code>_</code>.</p>
 <hr>
 <p><small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small></p>
 

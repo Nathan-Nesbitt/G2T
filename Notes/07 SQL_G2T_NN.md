@@ -303,5 +303,55 @@ For example if we had two tables of students and ages which both had a Unique Id
 SELECT * FROM students, studentAges WHERE students.ID = studentAges.ID;
 ```
 
+### Searching for similar values
+In SQL there is the `LIKE` operator, which allows you to search the database for a value that is similar to some input. 
+
+There are 2 wildcards that can be used with the LIKE operator:
+
+#### '%' - Zero to many values
+If you want to match any range of values (e.g. I know that someones name ends with SAR) we can use the `%` wildcard.
+
+So if we know that someone's name ends in 'SAR' we can find them in the database by doing:
+
+```
+LIKE "%SAR"
+```
+
+Or if it starts with 'SAR' we can do:
+
+```
+LIKE "SAR%"
+```
+
+Or if we only know that the name contains SAR in some place, we can say:
+
+```
+LIKE "%SAR%"
+```
+
+#### '_' - One value
+If you want to match exactly 1 value (e.g. if we know 3/4 of the characters in someone's name) we can use the `_` wildcard.
+
+So if we wanted to find the names that are 4 letters and start with 'SAR' we could use:
+```
+LIKE "SAR_"
+```
+
+For example if I wanted to search for someone in my contact list who's name starts with 'Sar' I could use:
+
+```
+SELECT * FROM contactList WHERE name LIKE "SAR%";
+```
+
+This searches the database for any names in the contactList table that start with `SAR`.
+
+Note that we can also use these wildcards together! So you could check the 2nd-4th character matches 'SAR' using:
+
+```
+SELECT * FROM contactList WHERE name LIKE "_SAR%";
+```
+
+As any character could match the `_`.
+
 ---
 <small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small>
