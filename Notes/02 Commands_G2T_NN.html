@@ -425,28 +425,122 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
 <h2 id="basic-commands">Basic Commands</h2>
 <p>There are some basic commands in linux:</p>
 <p><code>ls</code> - List Directory</p>
+<pre class="hljs"><code><div># Example (shows all files and all info in directory)
+ls -la
+
+# Output
+drwxrwxrwx 1 nathan nathan 4096 Jan  6 13:57 . drwxrwxrwx 1 nathan nathan 4096 Nov 17 12:39 .. 
+</div></code></pre>
 <p><code>cd</code> - Change Directory</p>
+<pre class="hljs"><code><div>Example (Changes directory back one level):
+
+cd ../
+</div></code></pre>
 <p><code>pwd</code> - Lists the path up to the current working directory</p>
+<pre class="hljs"><code><div>Example (Echos current working directory path):
+pwd
+
+Output:
+/var/www/G2T
+</div></code></pre>
 <p><code>clear</code> - Clears the shell</p>
+<pre class="hljs"><code><div>Example:
+
+clear
+</div></code></pre>
 <p><code>less</code> - Open file for reading</p>
+<pre class="hljs"><code><div>Example (Open the file foo.txt):
+
+less foo.txt
+</div></code></pre>
 <p><code>vim</code> or <code>vi</code> - Simple text editor</p>
+<pre class="hljs"><code><div>Example (Edit the file foo.txt):
+
+vi foo.txt
+
+## OR
+
+vim foo.txt
+</div></code></pre>
 <p><code>mkdir</code> and <code>rmdir</code> - Creates and deletes a directory</p>
+<pre class="hljs"><code><div>Example (Creates the folder foo/ and then deletes it):
+
+mkdir foo
+rmdir foo
+</div></code></pre>
 <p><code>rm</code> - Removes a file</p>
+<pre class="hljs"><code><div>Example (Removes the file foo.txt):
+
+rm foo.txt
+</div></code></pre>
 <p><code>mv</code> - Moves a file</p>
+<pre class="hljs"><code><div>Example (Moves the file foo.txt back one directory):
+
+mv foo.txt ../
+</div></code></pre>
 <p><code>cp</code> - Copies a file</p>
+<pre class="hljs"><code><div>Example (Makes a copy of foo.txt in the home dir):
+
+cp foo.txt ~/
+</div></code></pre>
 <p><code>touch</code> - 'Touches' or creates a file</p>
-<p><code>chown</code> - Changes ownership of a file</p>
+<pre class="hljs"><code><div>Example (Creates file foo.txt in the home directory):
+touch ~/foo
+</div></code></pre>
+<p><code>chown</code> - Changes perosn and group ownership of a file</p>
+<pre class="hljs"><code><div>Example (Changes ownership of foo.txt to nathan user and www-data group):
+
+chown nathan:www-data foo.txt 
+</div></code></pre>
 <p><code>chmod</code> - Changes permissions of a file</p>
+<pre class="hljs"><code><div>Example (Changes permissions of foo.txt to 755):
+
+chmod 755 foo.txt
+</div></code></pre>
 <p><code>ln</code> - Creates a link of a file</p>
+<pre class="hljs"><code><div>ln -s /home/nathan/myProject /var/www/myProject
+</div></code></pre>
 <p><code>ssh</code> - Secure Shell (remote connection to the device)</p>
+<pre class="hljs"><code><div>Example (SSH to the localhost on port 2222 using nathan user):
+ssh -p 2222 nathan@localhost
+</div></code></pre>
 <p><code>rsync</code> - Remote Sync (transfer files remotely)</p>
-<p><strong>And Most Importantly</strong></p>
+<pre class="hljs"><code><div>Example (Syncs the cygdrive folder on your local machiene onto the home directory on the server):
+rsync -rvz -e 'ssh -p 2222' /cygdrive/c/Users/Nathan/MyProject nathan@localhost:/home/nathan/MyProject
+</div></code></pre>
+<p><code>sudo</code> - Runs a command as root</p>
+<pre class="hljs"><code><div># Please don't do this in real life, it is bad practise to just assume a required 755 or 777
+
+Example (runs command chmod as root):
+sudo chmod 755 /var/www/myProject
+</div></code></pre>
+<p><strong>And Most Importantly</strong>
+If you do not understand a command, you can use the <code>man</code> command</p>
 <p><code>man</code> - Opens the manual page about the command</p>
+<pre class="hljs"><code><div>man chmod
+</div></code></pre>
 <h2 id="variables-and-operators">Variables and Operators</h2>
 <p><code>&gt;</code> writes data to a file (overwrite) <code> echo 'sometext' &gt; myFile.txt</code></p>
+<pre class="hljs"><code><div>Example (Overwrites 'foo' into a file foo.txt):
+echo &quot;Foo! &quot; &gt; foo.txt
+</div></code></pre>
 <p><code>&gt;&gt;</code> appends data to a file (adds the data to the end of the file) <code>echo 'sometext' &gt;&gt; myFile.txt</code></p>
+<pre class="hljs"><code><div>Example (Appends the string to the foo.txt file): 
+echo &quot;This is a file with foo in it&quot; &gt;&gt; foo.txt
+</div></code></pre>
 <p><code>|</code> - Also known as a pipe, this redirects all data on the left hand side into the right. For example you could do <code>cat myFile.txt | grep &quot;sometext&quot;</code></p>
+<pre class="hljs"><code><div>Example (prints out foo.txt file and finds all references to &quot;foo&quot; in the file):
+
+less foo.txt | grep &quot;foo&quot;
+
+Output:
+
+Foo! This is a file with foo in it
+</div></code></pre>
 <p><code>~</code> Represents the link to your $HOME directory which can be changed.</p>
+<pre class="hljs"><code><div>Example (Changes to your home directory):
+cd ~
+</div></code></pre>
 <hr>
 <p><small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner. </small></p>
 

@@ -423,7 +423,8 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
   </script>
 <h1 id="basics-of-css">Basics of CSS</h1>
 <h2 id="what-is-css">What is CSS?</h2>
-<p>CSS or cascading style sheets is a language used to style an HTML web page.</p>
+<p>CSS or cascading style sheets is the WC3 standard language for describing the presentation or style of an HTML web page.
+We can use CSS to change fonts, colours, layout/positions, boarders, background images, ect.</p>
 <h2 id="language-basics">Language Basics</h2>
 <pre class="hljs"><code><div>p {
     color: purple;
@@ -670,19 +671,89 @@ div p {
 <li>font-family</li>
 <li>font-style</li>
 <li>font-weight</li>
+<li>@font-face</li>
 <li>font-size</li>
 <li>text-align</li>
 <li>text-decoration</li>
 <li>text-transform</li>
+<li>letter-spacing</li>
+<li>line-height</li>
+<li>text-align</li>
+<li>text-declaration</li>
+<li>text-indent</li>
+</ul>
+<p>Generally we can also change the backgrounds of most elements</p>
+<ul>
+<li>background</li>
+<li>color</li>
+<li>opacity</li>
+<li>background-color</li>
+<li>background-attachment</li>
+<li>background-clip</li>
+<li>background-color</li>
+<li>background-image</li>
+<li>background-repeat</li>
+<li>box-shadow</li>
+</ul>
+<p>We can also change the boarders of most elements</p>
+<ul>
+<li>border</li>
+<li>border-bottom (or border-left, or top, or right)</li>
+<li>border-bottom-color (or border-left, or top, or right)</li>
+<li>border-bottom-style (or border-left, or top, or right)</li>
+<li>border-bottom-width (or border-left, or top, or right)</li>
+<li>border-color (or border-left, or top, or right)</li>
+</ul>
+<h2 id="font-sizes">Font Sizes</h2>
+<p>Sometimes we want to create custom sizes for our text. When we declare these units we can use
+different units for the size.</p>
+<h3 id="absolute-sizes">Absolute Sizes</h3>
+<p>Absolute sizes are used when we do not want the size to adapt to its container.</p>
+<ul>
+<li>cm - Centimeters</li>
+<li>mm - Milimeters</li>
+<li>in - Inches</li>
+<li>px - Pixels</li>
+<li>pt - Points</li>
+<li>pc - Picas</li>
+</ul>
+<h3 id="relative-sizes">Relative Sizes</h3>
+<ul>
+<li>em - Relative to the current element size</li>
+<li>% - Percentage of parent element size</li>
+<li>vmax - 1% of viewport larger dimension</li>
+<li>vmin - 1% of viewport smaller dimension</li>
+<li>vh - 1% of viewport height</li>
+<li>vw - 1% of viewport width</li>
+<li>rem - Relative to the root element size</li>
+<li>ch - Relative to the 0 width</li>
+</ul>
+<h3 id="predefined-sizes">Predefined Sizes</h3>
+<h4 id="absolute">Absolute</h4>
+<ul>
+<li>xx-small</li>
+<li>x-small</li>
+<li>small</li>
+<li>medium</li>
+<li>large</li>
+<li>x-large</li>
+<li>xx-large</li>
+<li>default</li>
+</ul>
+<h4 id="relative">Relative</h4>
+<ul>
+<li>smaller - Choose smaller size than the parent</li>
+<li>larger - Choose larger size than the parent</li>
+<li>inherit - Inherit size from parent</li>
 </ul>
 <h2 id="including-a-stylesheet">Including a stylesheet</h2>
 <p>If we want to be more tidy, we can store all of our CSS in a different file. You can do this by creating a <code>&lt;someFileName&gt;.css</code> file and including it in your main HTML file. This can be done with the following code in the head:</p>
 <pre class="hljs"><code><div>&lt;head&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&lt;someFileName&gt;.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;myStyleSheet.css&quot;&gt;
 &lt;/head&gt;
 </div></code></pre>
 <h2 id="bootstrap">Bootstrap</h2>
-<p>Bootstrap is our friend, if you do not like CSS that much. Go to <a href="https://getbootstrap.com/">Bootstrap's Website</a> and follow the instructions to use it. This will simplify the process of creating a much slicker website. <strong>USE THE BOOTSTRAP CDN FOR NOW.</strong></p>
+<p>Bootstrap is our friend if you do not like CSS that much. Go to <a href="https://getbootstrap.com/">Bootstrap's Website</a> and follow the instructions to use it. This will simplify the process of creating a much slicker website. <strong>USE THE BOOTSTRAP CDN FOR NOW.</strong></p>
 <hr>
 <p><small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small></p>
 

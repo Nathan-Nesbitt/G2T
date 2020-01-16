@@ -605,14 +605,63 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
         <td>Item 9</td>
     </tr>
 </table>
+<h2 id="layoutstructuresemantics-of-page">Layout/Structure/Semantics of page</h2>
+<p>Along with the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> tags, HTML5 also defines some
+other tags to organize the page.</p>
 <h3 id="div"><code>&lt;div&gt;</code></h3>
 <p>A div is what we will be using to create divisions in our page.</p>
 <div style="float: right">
     <p>This allows me to put objects in weird places</p>
     <p>And do it consistantly for all objects inside of a div</p>
 </div>
+<h3 id="section"><code>&lt;section&gt;</code></h3>
+<p>A section is a way of representing or separating a part of a page.
+Use this when you have a unique header for a section of a page.</p>
+<pre class="hljs"><code><div>&lt;section&gt;
+    &lt;h1&gt;Contacts&lt;/h1&gt;
+    &lt;p&gt;This is my section, because it has a header and unique data (all is contacts)&lt;/p&gt;
+&lt;/section&gt;
+&lt;section&gt;
+    &lt;h1&gt;Phone Number&lt;/h1&gt;
+    &lt;p&gt;This is my second section, because it is separate from the first section due to it's header&lt;/p&gt; 
+&lt;/section&gt;
+</div></code></pre>
+<h3 id="article"><code>&lt;article&gt;</code></h3>
+<p>An article element is used when we have a self-contained, composition that could be re-usable. For example if we had:</p>
+<pre class="hljs"><code><div>&lt;article&gt;
+    &lt;p&gt;This is my article, because it has a self-contained composition&lt;/p&gt;
+&lt;/article&gt;
+&lt;article&gt;
+    &lt;p&gt;This is my article, because it has a self-contained composition&lt;/p&gt;
+&lt;/article&gt;
+</div></code></pre>
+<h3 id="figure"><code>&lt;figure&gt;</code></h3>
+<p>A figure is most commonly used if the content is an image, illustration, or code.</p>
+<pre class="hljs"><code><div>&lt;figure&gt;
+    &lt;img src=&quot;img.png&quot; alt=&quot;My Image&quot;&gt;
+&lt;/figure&gt;
+</div></code></pre>
+<h3 id="figcaption"><code>&lt;figcaption&gt;</code></h3>
+<p>Adds a caption to a figure.</p>
+<pre class="hljs"><code><div>&lt;figure&gt;
+    &lt;img src=&quot;img.png&quot; alt=&quot;My Image&quot;&gt;
+    &lt;figcaption&gt;This is my caption&lt;/figcaption&gt;
+&lt;/figure&gt;
+</div></code></pre>
+<h3 id="aside"><code>&lt;aside&gt;</code></h3>
+<p>If the information is related to the main content but is not essential you should nest
+the data inside of an <code>&lt;aside&gt;</code> tag.</p>
+<pre class="hljs"><code><div>&lt;aside&gt;
+  &lt;h2&gt;My Aside&lt;/h2&gt;
+  &lt;p&gt;Some aside content&lt;/p&gt;
+&lt;/aside&gt;
+</div></code></pre>
+<h3 id="time"><code>&lt;time&gt;</code></h3>
+<p>Time allows web crawlers to index the page and find the dates.</p>
+<pre class="hljs"><code><div>&lt;time datetime=&quot;2020-01-28&quot;&gt;January 28, 2020&lt;time&gt;
+</div></code></pre>
 <h2 id="forms-and-inputs">Forms and Inputs</h2>
-<h3 id="form">&lt;form&gt;</h3>
+<h3 id="form"><code>&lt;form&gt;</code></h3>
 <p>A form outlines where and how the values will be sent.</p>
 <pre class="hljs"><code><div>&lt;form method=&quot;post&quot; action=&quot;myScript.php&quot;&gt;
 
@@ -620,7 +669,7 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
 </div></code></pre>
 <form method="post" action="myScript.php">
 </form>
-<h3 id="input">&lt;input&gt;</h3>
+<h3 id="input"><code>&lt;input&gt;</code></h3>
 <pre class="hljs"><code><div>&lt;form method=&quot;post&quot; action=&quot;myScript.php&quot;&gt;
 	&lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;
 	&lt;input type=&quot;email&quot; name=&quot;email&quot;&gt;
@@ -630,7 +679,7 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
 	<input type="text" name="name">
 	<input type="email" name="email">
 </form>
-<h3 id="select">&lt;select&gt;</h3>
+<h3 id="select"><code>&lt;select&gt;</code></h3>
 <pre class="hljs"><code><div>&lt;select name=&quot;colors&quot;&gt;
     &lt;option selected=&quot;selected&quot; value=&quot;Python&quot;&gt;Python&lt;/option&gt;
     &lt;option value=&quot;Javascript&quot;&gt;Javascript&lt;/option&gt;
@@ -644,7 +693,7 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
     <option value="PHP">PHP</option>
     <option value="Perl">Perl</option>
 </select>
-<h3 id="textarea">&lt;textarea&gt;</h3>
+<h3 id="textarea"><code>&lt;textarea&gt;</code></h3>
 <pre class="hljs"><code><div>&lt;textarea name=&quot;textArea&quot; rows=&quot;4&quot; cols=&quot;40&quot; &gt;
     Enter your input in here.
 &lt;/textarea&gt;
@@ -652,13 +701,13 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
 <textarea name="textArea" rows="4" cols="40" >
     Enter your input in here.
 </textarea>
-<h3 id="input-typereset">&lt;input type=&quot;reset&quot;/&gt;</h3>
+<h3 id="input-typereset"><code>&lt;input type=&quot;reset&quot;/&gt;</code></h3>
 <p>If you want to reset all of the values in the form</p>
 <input type="reset"/>
 <h3 id="input-typesubmit">&lt;input type=&quot;submit&quot;/&gt;</h3>
 <p>If you want to submit the form</p>
 <input type="submit"/>
-<h2 id="input-typebutton">&lt;input type=&quot;button&quot;/&gt;</h2>
+<h3 id="input-typebutton"><code>&lt;input type=&quot;button&quot;/&gt;</code></h3>
 <p>This creates a button.</p>
 <input type="button" value="Button" name="myButton"/>
 <h2 id="styling-tags">Styling Tags</h2>
