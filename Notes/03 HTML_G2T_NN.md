@@ -234,6 +234,10 @@ Puts a horizontal line through the page
     </tr>
 </table>
 
+## Layout/Structure/Semantics of page
+Along with the `<head>` and `<body>` tags, HTML5 also defines some 
+other tags to organize the page.
+
 ### `<div>`
 A div is what we will be using to create divisions in our page. 
 <div style="float: right">
@@ -241,9 +245,71 @@ A div is what we will be using to create divisions in our page.
     <p>And do it consistantly for all objects inside of a div</p>
 </div>
 
+### `<section>`
+A section is a way of representing or separating a part of a page. 
+Use this when you have a unique header for a section of a page.
+
+```
+<section>
+    <h1>Contacts</h1>
+    <p>This is my section, because it has a header and unique data (all is contacts)</p>
+</section>
+<section>
+    <h1>Phone Number</h1>
+    <p>This is my second section, because it is separate from the first section due to it's header</p> 
+</section>
+```
+
+### `<article>`
+An article element is used when we have a self-contained, composition that could be re-usable. For example if we had:
+```
+<article>
+    <p>This is my article, because it has a self-contained composition</p>
+</article>
+<article>
+    <p>This is my article, because it has a self-contained composition</p>
+</article>
+```
+### `<figure>`
+A figure is most commonly used if the content is an image, illustration, or code. 
+
+```
+<figure>
+    <img src="img.png" alt="My Image">
+</figure>
+```
+
+### `<figcaption>`
+Adds a caption to a figure.
+
+```
+<figure>
+    <img src="img.png" alt="My Image">
+    <figcaption>This is my caption</figcaption>
+</figure>
+```
+
+### `<aside>`
+If the information is related to the main content but is not essential you should nest
+the data inside of an `<aside>` tag. 
+
+```
+<aside>
+  <h2>My Aside</h2>
+  <p>Some aside content</p>
+</aside>
+```
+
+### `<time>`
+Time allows web crawlers to index the page and find the dates.
+
+```
+<time datetime="2020-01-28">January 28, 2020<time>
+```
+
 ## Forms and Inputs
 
-### \<form>
+### `<form>`
 
 A form outlines where and how the values will be sent.
 ```
@@ -257,7 +323,7 @@ A form outlines where and how the values will be sent.
 
 </form>
 
-### \<input>
+### `<input>`
 
 ```
 <form method="post" action="myScript.php">
@@ -271,7 +337,7 @@ A form outlines where and how the values will be sent.
 	<input type="email" name="email">
 </form>
 
-### \<select>
+### `<select>`
 
 ```
 <select name="colors">
@@ -288,7 +354,7 @@ A form outlines where and how the values will be sent.
     <option value="Perl">Perl</option>
 </select>
 
-### \<textarea>
+### `<textarea>`
 
 ```
 <textarea name="textArea" rows="4" cols="40" >
@@ -300,7 +366,7 @@ A form outlines where and how the values will be sent.
     Enter your input in here.
 </textarea>
 
-### \<input type="reset"/>
+### `<input type="reset"/>`
 
 If you want to reset all of the values in the form
 
@@ -312,7 +378,7 @@ If you want to submit the form
 
 <input type="submit"/>
 
-## \<input type="button"/>
+### `<input type="button"/>`
 
 This creates a button. 
 
