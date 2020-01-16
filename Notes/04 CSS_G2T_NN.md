@@ -1,8 +1,9 @@
 # Basics of CSS
 
 ## What is CSS?
-CSS or cascading style sheets is a language used to style an HTML web page.
 
+CSS or cascading style sheets is the WC3 standard language for describing the presentation or style of an HTML web page. 
+We can use CSS to change fonts, colours, layout/positions, boarders, background images, ect.
 ## Language Basics
 
 ```
@@ -319,10 +320,82 @@ For text we will be looking at:
 - font-family
 - font-style
 - font-weight
+- @font-face
 - font-size
 - text-align
 - text-decoration
 - text-transform
+- letter-spacing
+- line-height
+- text-align
+- text-declaration
+- text-indent
+
+Generally we can also change the backgrounds of most elements
+
+- background
+- color
+- opacity
+- background-color
+- background-attachment
+- background-clip
+- background-color
+- background-image
+- background-repeat
+- box-shadow
+
+We can also change the boarders of most elements
+
+- border
+- border-bottom (or border-left, or top, or right)
+- border-bottom-color (or border-left, or top, or right)
+- border-bottom-style (or border-left, or top, or right)
+- border-bottom-width (or border-left, or top, or right)
+- border-color (or border-left, or top, or right)
+
+## Font Sizes
+Sometimes we want to create custom sizes for our text. When we declare these units we can use
+different units for the size. 
+
+### Absolute Sizes
+Absolute sizes are used when we do not want the size to adapt to its container. 
+
+- cm - Centimeters 
+- mm - Milimeters
+- in - Inches 
+- px - Pixels
+- pt - Points 
+- pc - Picas
+
+### Relative Sizes
+
+- em - Relative to the current element size 
+- % - Percentage of parent element size
+- vmax - 1% of viewport larger dimension
+- vmin - 1% of viewport smaller dimension
+- vh - 1% of viewport height
+- vw - 1% of viewport width
+- rem - Relative to the root element size
+- ch - Relative to the 0 width
+
+### Predefined Sizes
+
+#### Absolute
+
+- xx-small
+- x-small
+- small
+- medium
+- large
+- x-large
+- xx-large
+- default
+
+#### Relative
+
+- smaller - Choose smaller size than the parent
+- larger - Choose larger size than the parent
+- inherit - Inherit size from parent
 
 ## Including a stylesheet
 
@@ -330,13 +403,13 @@ If we want to be more tidy, we can store all of our CSS in a different file. You
 
 ```
 <head>
-    <link rel="stylesheet" type="text/css" href="<someFileName>.css">
+    <link rel="stylesheet" type="text/css" href="myStyleSheet.css">
 </head>
 ```
 
 ## Bootstrap
 
-Bootstrap is our friend, if you do not like CSS that much. Go to [Bootstrap's Website](https://getbootstrap.com/) and follow the instructions to use it. This will simplify the process of creating a much slicker website. **USE THE BOOTSTRAP CDN FOR NOW.** 
+Bootstrap is our friend if you do not like CSS that much. Go to [Bootstrap's Website](https://getbootstrap.com/) and follow the instructions to use it. This will simplify the process of creating a much slicker website. **USE THE BOOTSTRAP CDN FOR NOW.** 
 
 ---
 <small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small>
