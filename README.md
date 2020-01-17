@@ -1,6 +1,6 @@
 ## What is this?
-These are personal notes for the Web Development class I teach. 
-This is not intended as a walkthrough but rather a brief overview of the topics that I cover.
+These are personal notes for the web development course I teach.
+This is not intended as a walkthrough but rather an overview of the topics that I cover. The outline of the course can be found in the main repo as [outline_G2T_NN.pdf](https://github.com/Nathan-Nesbitt/G2T/blob/master/Outline_G2T_NN.pdf).
 
 ## What does it cover? 
 - [A simple setup of a VirtualBox VM with a LAMP stack](https://nathan-nesbitt.github.io/G2T/Notes/01%20Setup_G2T_NN.html).  
