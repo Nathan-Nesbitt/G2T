@@ -555,8 +555,11 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
   <li>CSS</li>
   <li>JavaScript</li>
 </ol> 
-<h3 id="table-tr-and-th"><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, and <code>&lt;th&gt;</code></h3>
+<h3 id="table-tr-and-th-or-td"><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, and <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code></h3>
 <h4 id="creating-a-table">Creating a table</h4>
+<p>A basic table layout involves the <code>&lt;table&gt;</code> tag which indicates a table. We also will contain multiple <code>&lt;tr&gt;</code> tags which is a table row.</p>
+<p>Within each of those <code>&lt;tr&gt;</code> tags you will have either a set of <code>&lt;th&gt;</code> (table header) which shows information about each of the columns, or <code>&lt;td&gt;</code> (table data) which shows the data.</p>
+<p>An example of a simple table</p>
 <pre class="hljs"><code><div>&lt;table&gt;
     &lt;caption&gt;My Table&lt;/caption&gt;
     &lt;tr&gt;
@@ -587,6 +590,55 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
     <tr>
         <th>Thing 1</th>
         <th>Thing 2</th>
+        <th>Thing 3</th>
+    </tr>
+    <tr>
+        <td>Item 1</td>
+        <td>Item 2</td>
+        <td>Item 3</td>
+    </tr>
+    <tr>
+        <td>Item 4</td>
+        <td>Item 5</td>
+        <td>Item 6</td>
+    </tr>
+    <tr>
+        <td>Item 7</td>
+        <td>Item 8</td>
+        <td>Item 9</td>
+    </tr>
+</table>
+<h4 id="changing-the-size-of-a-column-in-a-table">Changing the size of a column in a table</h4>
+<p>If we want to change the size of a cell you can use the <code>colspan</code> or <code>rowspan</code> attribute.</p>
+<pre class="hljs"><code><div>&lt;table&gt;
+    &lt;caption&gt;My Table&lt;/caption&gt;
+    &lt;tr&gt;
+        &lt;th colspan=&quot;2&quot;&gt;Thing 1&lt;/th&gt;
+        &lt;th rowspan=&quot;2&quot;&gt;Thing 2&lt;/th&gt;
+        &lt;th&gt;Thing 3&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Item 1&lt;/td&gt;
+        &lt;td&gt;Item 2&lt;/td&gt;
+        &lt;td&gt;Item 3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Item 4&lt;/td&gt;
+        &lt;td&gt;Item 5&lt;/td&gt;
+        &lt;td&gt;Item 6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Item 7&lt;/td&gt;
+        &lt;td&gt;Item 8&lt;/td&gt;
+        &lt;td&gt;Item 9&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</div></code></pre>
+<table>
+    <caption>My Table</caption>
+    <tr>
+        <th colspan="2">Thing 1</th>
+        <th rowspan="2">Thing 2</th>
         <th>Thing 3</th>
     </tr>
     <tr>

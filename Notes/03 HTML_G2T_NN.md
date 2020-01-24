@@ -180,10 +180,14 @@ Puts a horizontal line through the page
   <li>JavaScript</li>
 </ol> 
 
-### `<table>`, `<tr>`, and `<th>` 
+### `<table>`, `<tr>`, and `<th>` or `<td>` 
 
 #### Creating a table
+A basic table layout involves the `<table>` tag which indicates a table. We also will contain multiple `<tr>` tags which is a table row.  
 
+Within each of those `<tr>` tags you will have either a set of `<th>` (table header) which shows information about each of the columns, or `<td>` (table data) which shows the data.
+
+An example of a simple table
 ```
 <table>
     <caption>My Table</caption>
@@ -215,6 +219,58 @@ Puts a horizontal line through the page
     <tr>
         <th>Thing 1</th>
         <th>Thing 2</th>
+        <th>Thing 3</th>
+    </tr>
+    <tr>
+        <td>Item 1</td>
+        <td>Item 2</td>
+        <td>Item 3</td>
+    </tr>
+    <tr>
+        <td>Item 4</td>
+        <td>Item 5</td>
+        <td>Item 6</td>
+    </tr>
+    <tr>
+        <td>Item 7</td>
+        <td>Item 8</td>
+        <td>Item 9</td>
+    </tr>
+</table>
+
+#### Changing the size of a column in a table
+If we want to change the size of a cell you can use the `colspan` or `rowspan` attribute.
+
+```
+<table>
+    <caption>My Table</caption>
+    <tr>
+        <th colspan="2">Thing 1</th>
+        <th rowspan="2">Thing 2</th>
+        <th>Thing 3</th>
+    </tr>
+    <tr>
+        <td>Item 1</td>
+        <td>Item 2</td>
+        <td>Item 3</td>
+    </tr>
+    <tr>
+        <td>Item 4</td>
+        <td>Item 5</td>
+        <td>Item 6</td>
+    </tr>
+    <tr>
+        <td>Item 7</td>
+        <td>Item 8</td>
+        <td>Item 9</td>
+    </tr>
+</table>
+```
+<table>
+    <caption>My Table</caption>
+    <tr>
+        <th colspan="2">Thing 1</th>
+        <th rowspan="2">Thing 2</th>
         <th>Thing 3</th>
     </tr>
     <tr>
