@@ -407,6 +407,59 @@ If we want to be more tidy, we can store all of our CSS in a different file. You
 </head>
 ```
 
+## Layout
+When we create a page we often want to create a layout in the page so that it looks better. When we simply create a layout for an html file without changing anything we get the normal flow.
+
+### Normal Flow
+Normal flow is how the browser will display your file without any modifications. All inline and block elements are shown in their default state.
+
+#### Block Elements
+Block elements are displayed as their own line (e.g. H1). If the content is more than 1 line, the block then takes up a second line.
+ 
+#### Inline Elements
+Inline elements are displayed within the line (e.g. a).
+We also have replaced inline elements which are elements that are defined by an external source (e.g. img), and nonreplaced inline elements which are defined in the document.
+
+### Floats
+You can use floats to position an element within a parent. There are 3 options when floating:
+
+- None: Nothing applied
+- Left: No sibling can be on the left of the element
+- Right: No sibling can be on the right of the element
+
+Floats must be used with a defined width, as they will fill the entire width of the screen, which makes them redundant.
+
+#### Setting a Float
+
+```
+.myClass {
+    float: left;
+}
+```
+
+#### Clearing a Float
+
+```
+.myClass {
+    clear: right;
+}
+```
+
+### Positioning 
+#### Fixed
+Any element that you apply fixed positioning to is held in place no matter the change in the page.
+#### Absolute
+An element with absolute positioning is positioned in relation to its parent element. When we use absolute positioning, it removes the element from the normal flow, which can cause problems.
+#### Static
+The element is positioned normally, as if we hadn't changed anything.
+#### Relative
+Position relative to its normal position. 
+#### Sticky
+Positioned based on where the user has scrolled.
+
+### Flexbox
+Thank goodness, we don't always have to 
+
 ## Bootstrap
 
 Bootstrap is our friend if you do not like CSS that much. Go to [Bootstrap's Website](https://getbootstrap.com/) and follow the instructions to use it. This will simplify the process of creating a much slicker website. **USE THE BOOTSTRAP CDN FOR NOW.** 
