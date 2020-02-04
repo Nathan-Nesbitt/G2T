@@ -426,6 +426,7 @@ You can use floats to position an element within a parent. There are 3 options w
 - None: Nothing applied
 - Left: No sibling can be on the left of the element
 - Right: No sibling can be on the right of the element
+- Both: No sibling on either side
 
 Floats must be used with a defined width, as they will fill the entire width of the screen, which makes them redundant.
 
@@ -445,6 +446,15 @@ Floats must be used with a defined width, as they will fill the entire width of 
 }
 ```
 
+#### Containing a Float
+If a float is too large what should happen? Normally we want the content to stay inside of the parent, so we can use the `overflow` css property on the parent container to ensure that it remains inside of the parent.
+
+```
+#parent {
+    overflow: auto;
+}
+```
+
 ### Positioning 
 #### Fixed
 Any element that you apply fixed positioning to is held in place no matter the change in the page.
@@ -457,10 +467,92 @@ Position relative to its normal position.
 #### Sticky
 Positioned based on where the user has scrolled.
 
-### Flexbox
-Thank goodness, we don't always have to 
+### Using positioning to overlap elements
+If we have 2 images and we want them to overlap we can use relative/absolute positioning to ensure that the images overlap eachother. The
+following code shows the image with ID image2 20 pixels to the left and
+20 pixels up:
 
-## Bootstrap
+```
+#image1 {
+    position: relative;
+}
+
+#image2 {
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+```
+
+## Layout and Positioning Options
+
+### Positioning using Floats (This way does not bring me joy)
+
+#### 
+
+### Positioning using Flexbox (This way brings me joy)
+Thank goodness, we don't always have to use floats to build websites,
+we can instead use flexboxes!
+
+#### Using Flexbox
+If we want to use flexbox, we need to imagine that we have a parent, which we will now refer to as the container, and the children. If we want to have a basic layout using flexbox we need to do:
+
+```
+.container {
+    display: flex;
+}
+
+.children {
+    /* Whatever effecs you want to apply to the children */
+}
+```
+
+#### (Parent) Chnaging the direction
+The elements inside of the container can either be placed horizontally or vertically (and also reverse of the two). We can do this by saying:
+
+```
+.container {
+    display: flex;
+    flex-direction:
+}
+```
+
+#### (Parent) Wrapping the data when it overflows
+Now what happens if we have too much data to fit on 1 line? We can simply use `flex-wrap` to handle this outcome.
+
+```
+.container {
+    display: flex;
+    flex-wrap: wrap; /* wrap, nowrap, or wrap-reverse */
+}
+```
+
+#### (Parent) Aligning Items Horizontally 
+With flexbox if we want to have the children of some element to have a cetain horizontal layout, for example if we want them all to be spaced evenly to fill the entire parent, we can specify this using `justify-content`:
+
+```
+.container {
+    display: flex;
+    /* flex-start, flex-end, center, space-between, space-around, space-evenly */
+    justify-content: space-evenly; 
+}
+```
+
+#### (Parent) Aligning Items Vertically
+If you want to align children of an element vertically we can use the flexbox `align-content` attribute. 
+
+```
+.container {
+    /* center, flex-start, flex-end, stretch, space-between, space-around */
+    align-content: center; 
+}
+```
+
+#### (Child) Ordering Elements
+
+
+### Bootstrap
 
 Bootstrap is our friend if you do not like CSS that much. Go to [Bootstrap's Website](https://getbootstrap.com/) and follow the instructions to use it. This will simplify the process of creating a much slicker website. **USE THE BOOTSTRAP CDN FOR NOW.** 
 
