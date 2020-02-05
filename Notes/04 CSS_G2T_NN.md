@@ -550,7 +550,72 @@ If you want to align children of an element vertically we can use the flexbox `a
 ```
 
 #### (Child) Ordering Elements
+If you want the children to be displayed in a specific order you can use the `order` attribute for element. The default value for this is
+0 but you can set it to be anything. The lower implies the first on the list.
 
+```
+#item1 {
+    order: 1;
+}
+
+#item2 {
+    order: 2;
+}
+```
+
+#### (Child) Flex Grow
+If you want to allow the individual elements in the container to expand, you can give a `flex-grow` property of some number. 
+This gives the second item double the space of the rest of the elements in the container.  
+
+```
+#item1 {
+    flex-grow: 1;
+}
+
+#item2 {
+    flex-grow: 2;
+}
+
+#item3 {
+    flex-grow: 1;
+}
+```
+
+#### (Child) Flex Shrink
+Flex shrink is the opposite of flex grow, it specifies how much a child will shrink compared to the rest of the children. 2 now means that
+we will be shrinking at twice the rate as the other elements.
+```
+#item1 {
+    flex-shrink: 1;
+}
+
+#item2 {
+    flex-shrink: 2;
+}
+
+#item3 {
+    flex-shrink: 1;
+}
+```
+
+#### (Child) Default/Initial size of child
+If you want to set the default or initial size of one of the child elements, we can use the `flex-basis` attribute:
+
+```
+#item1 {
+  flex-basis: 10px;
+}
+```
+
+#### Align Child
+If you want to align one child element differently from the rest you can use `align-self`.
+
+```
+#item1 {
+    /* center, flex-start, flex-end, stretch, space-between, space-around */
+    align-self: center;
+}
+```
 
 ### Bootstrap
 
