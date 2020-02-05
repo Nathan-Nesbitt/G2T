@@ -1,6 +1,18 @@
 # Set up virtualbox for LAMP server development
 
-## Setting up virtualbox with a ubuntu VM
+## (Optimal) Just run linux
+If you have your own machiene, just run some distribution of linux. Real development is easiest when done on linux as you
+will have to do less hacky workarounds.
+
+## WSL
+If you are lucky you may be able to install WSL or Windows Subsystem for Linux. This is the linux kernel/ubuntu operating system
+which runs on top of Windows. You can simply install this from the Windows store, and requires a powershell command to be run for
+it to be enabled. I will not be running through that installation in this document because there are many good resources which can
+be found online for installing it.
+
+If installing through WSL simply skip to the Installing LAMP Stack section.
+
+## Setting up virtualbox with an ubuntu VM
 1. Install virtualbox from https://www.virtualbox.org/
 2. Install all required dependencies
 3. Download the ubuntu server https://ubuntu.com/download/server
@@ -18,13 +30,13 @@ Once the server has rebooted, we now want to ensure that all packages are update
 
 ## Installing LAMP stack
 1. Ensure that all packages are installed `sudo apt update` 
-2. Install apache2 `sudo apt-get install apache2` 
-3. Install mysql-server `sudo apt-get install mysql-server`
-4. Install PHP `sudo apt-get install php libapache2-mod-php php-mysql`
+2. Install apache2 `sudo apt install apache2` 
+3. Install mysql-server `sudo apt install mysql-server`
+4. Install PHP `sudo apt install php libapache2-mod-php php-mysql`
 
 ## Setting up apache2
 1. Creating a working directory for your project `sudo mkdir /var/www/<projectName>`
-2. Create a link for your projecty directory somewhere else so you can work/push to it `ln -s /var/www/<projectName> ~/<prohectName>`
+2. Create a link for your projecty directory somewhere else so you can work/push to it `ln -s  ~/<projectName> /var/www/<projectName>`
 3. Change the ownership of that directory `chown g2t:g2t ~/<prohectName>`
 2. Create a temporary file to show that it is working `sudo touch ~/<projectName>/index.html`
 3. Open the index file you created `vim ~/<projectName>/index.html`
@@ -47,6 +59,12 @@ Once the server has rebooted, we now want to ensure that all packages are update
     # to be the folder you created earlier
 
     DocumentRoot /var/www/<projectName>
+
+    ## OR
+
+    # If you have multiple projects on one server and don't care about proper redirects you can set it to
+
+    DocumentRoot /var/www/
     ```
 
 You should now be able to go to a local browser, and type in localhost:8080 and connect to your webserver. If this doesn't work you may have to restart apache `sudo systemctl restart apache2`
@@ -71,7 +89,7 @@ If you want to make it so you have your own file for each project you work on an
 The ErrorLog and the CustomLog lines can optionally be left without the <DomainName> attribute if you want all of the logs in one file.
 
 ## Setting up mysql
-1. Optionally run the secure installation script `sudo mysql_secure_installation`
+1. Optionally run the secure installation script (this will force you to use strong passwords) `sudo mysql_secure_installation`
 2. Make sur that mysql is running `sudo systemctl start mysql`
 
 We will go into creating users and databases later in the course.
@@ -148,8 +166,8 @@ rsync -rvz -e 'ssh -p 2222' ~/Documents/G2T/myProject g2t@localhost:/home/g2t/my
 
 Now we can simply run `./syncScript.sh` anytime we want to sync our project to a folder.
 
-## GitHub
-We will be using github to store the code you work on in class on the web. Once you get more experienced it is more useful to know how to use the git commands, but for now we will be using the github desktop client which can be found [here](https://desktop.github.com/). 
+## GitHub (ONLY FOR REFERENCE)
+Once you get more experienced it is useful to know how to use the git CLI, but for now we can use the github desktop client which can be found [here](https://desktop.github.com/). 
 
 ### Setting up git
 1. Download it and run the installer

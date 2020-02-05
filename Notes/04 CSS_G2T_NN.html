@@ -752,7 +752,166 @@ different units for the size.</p>
     &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;myStyleSheet.css&quot;&gt;
 &lt;/head&gt;
 </div></code></pre>
-<h2 id="bootstrap">Bootstrap</h2>
+<h2 id="layout">Layout</h2>
+<p>When we create a page we often want to create a layout in the page so that it looks better. When we simply create a layout for an html file without changing anything we get the normal flow.</p>
+<h3 id="normal-flow">Normal Flow</h3>
+<p>Normal flow is how the browser will display your file without any modifications. All inline and block elements are shown in their default state.</p>
+<h4 id="block-elements">Block Elements</h4>
+<p>Block elements are displayed as their own line (e.g. H1). If the content is more than 1 line, the block then takes up a second line.</p>
+<h4 id="inline-elements">Inline Elements</h4>
+<p>Inline elements are displayed within the line (e.g. a).
+We also have replaced inline elements which are elements that are defined by an external source (e.g. img), and nonreplaced inline elements which are defined in the document.</p>
+<h3 id="floats">Floats</h3>
+<p>You can use floats to position an element within a parent. There are 3 options when floating:</p>
+<ul>
+<li>None: Nothing applied</li>
+<li>Left: No sibling can be on the left of the element</li>
+<li>Right: No sibling can be on the right of the element</li>
+<li>Both: No sibling on either side</li>
+</ul>
+<p>Floats must be used with a defined width, as they will fill the entire width of the screen, which makes them redundant.</p>
+<h4 id="setting-a-float">Setting a Float</h4>
+<pre class="hljs"><code><div>.myClass {
+    float: left;
+}
+</div></code></pre>
+<h4 id="clearing-a-float">Clearing a Float</h4>
+<pre class="hljs"><code><div>.myClass {
+    clear: right;
+}
+</div></code></pre>
+<h4 id="containing-a-float">Containing a Float</h4>
+<p>If a float is too large what should happen? Normally we want the content to stay inside of the parent, so we can use the <code>overflow</code> css property on the parent container to ensure that it remains inside of the parent.</p>
+<pre class="hljs"><code><div>#parent {
+    overflow: auto;
+}
+</div></code></pre>
+<h3 id="positioning">Positioning</h3>
+<h4 id="fixed">Fixed</h4>
+<p>Any element that you apply fixed positioning to is held in place no matter the change in the page.</p>
+<h4 id="absolute">Absolute</h4>
+<p>An element with absolute positioning is positioned in relation to its parent element. When we use absolute positioning, it removes the element from the normal flow, which can cause problems.</p>
+<h4 id="static">Static</h4>
+<p>The element is positioned normally, as if we hadn't changed anything.</p>
+<h4 id="relative">Relative</h4>
+<p>Position relative to its normal position.</p>
+<h4 id="sticky">Sticky</h4>
+<p>Positioned based on where the user has scrolled.</p>
+<h3 id="using-positioning-to-overlap-elements">Using positioning to overlap elements</h3>
+<p>If we have 2 images and we want them to overlap we can use relative/absolute positioning to ensure that the images overlap eachother. The
+following code shows the image with ID image2 20 pixels to the left and
+20 pixels up:</p>
+<pre class="hljs"><code><div>#image1 {
+    position: relative;
+}
+
+#image2 {
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+</div></code></pre>
+<h2 id="layout-and-positioning-options">Layout and Positioning Options</h2>
+<h3 id="positioning-using-floats-this-way-does-not-bring-me-joy">Positioning using Floats (This way does not bring me joy)</h3>
+<h4 id=""></h4>
+<h3 id="positioning-using-flexbox-this-way-brings-me-joy">Positioning using Flexbox (This way brings me joy)</h3>
+<p>Thank goodness, we don't always have to use floats to build websites,
+we can instead use flexboxes!</p>
+<h4 id="using-flexbox">Using Flexbox</h4>
+<p>If we want to use flexbox, we need to imagine that we have a parent, which we will now refer to as the container, and the children. If we want to have a basic layout using flexbox we need to do:</p>
+<pre class="hljs"><code><div>.container {
+    display: flex;
+}
+
+.children {
+    /* Whatever effecs you want to apply to the children */
+}
+</div></code></pre>
+<h4 id="parent-chnaging-the-direction">(Parent) Chnaging the direction</h4>
+<p>The elements inside of the container can either be placed horizontally or vertically (and also reverse of the two). We can do this by saying:</p>
+<pre class="hljs"><code><div>.container {
+    display: flex;
+    flex-direction:
+}
+</div></code></pre>
+<h4 id="parent-wrapping-the-data-when-it-overflows">(Parent) Wrapping the data when it overflows</h4>
+<p>Now what happens if we have too much data to fit on 1 line? We can simply use <code>flex-wrap</code> to handle this outcome.</p>
+<pre class="hljs"><code><div>.container {
+    display: flex;
+    flex-wrap: wrap; /* wrap, nowrap, or wrap-reverse */
+}
+</div></code></pre>
+<h4 id="parent-aligning-items-horizontally">(Parent) Aligning Items Horizontally</h4>
+<p>With flexbox if we want to have the children of some element to have a cetain horizontal layout, for example if we want them all to be spaced evenly to fill the entire parent, we can specify this using <code>justify-content</code>:</p>
+<pre class="hljs"><code><div>.container {
+    display: flex;
+    /* flex-start, flex-end, center, space-between, space-around, space-evenly */
+    justify-content: space-evenly; 
+}
+</div></code></pre>
+<h4 id="parent-aligning-items-vertically">(Parent) Aligning Items Vertically</h4>
+<p>If you want to align children of an element vertically we can use the flexbox <code>align-content</code> attribute.</p>
+<pre class="hljs"><code><div>.container {
+    /* center, flex-start, flex-end, stretch, space-between, space-around */
+    align-content: center; 
+}
+</div></code></pre>
+<h4 id="child-ordering-elements">(Child) Ordering Elements</h4>
+<p>If you want the children to be displayed in a specific order you can use the <code>order</code> attribute for element. The default value for this is
+0 but you can set it to be anything. The lower implies the first on the list.</p>
+<pre class="hljs"><code><div>#item1 {
+    order: 1;
+}
+
+#item2 {
+    order: 2;
+}
+</div></code></pre>
+<h4 id="child-flex-grow">(Child) Flex Grow</h4>
+<p>If you want to allow the individual elements in the container to expand, you can give a <code>flex-grow</code> property of some number.
+This gives the second item double the space of the rest of the elements in the container.</p>
+<pre class="hljs"><code><div>#item1 {
+    flex-grow: 1;
+}
+
+#item2 {
+    flex-grow: 2;
+}
+
+#item3 {
+    flex-grow: 1;
+}
+</div></code></pre>
+<h4 id="child-flex-shrink">(Child) Flex Shrink</h4>
+<p>Flex shrink is the opposite of flex grow, it specifies how much a child will shrink compared to the rest of the children. 2 now means that
+we will be shrinking at twice the rate as the other elements.</p>
+<pre class="hljs"><code><div>#item1 {
+    flex-shrink: 1;
+}
+
+#item2 {
+    flex-shrink: 2;
+}
+
+#item3 {
+    flex-shrink: 1;
+}
+</div></code></pre>
+<h4 id="child-defaultinitial-size-of-child">(Child) Default/Initial size of child</h4>
+<p>If you want to set the default or initial size of one of the child elements, we can use the <code>flex-basis</code> attribute:</p>
+<pre class="hljs"><code><div>#item1 {
+  flex-basis: 10px;
+}
+</div></code></pre>
+<h4 id="align-child">Align Child</h4>
+<p>If you want to align one child element differently from the rest you can use <code>align-self</code>.</p>
+<pre class="hljs"><code><div>#item1 {
+    /* center, flex-start, flex-end, stretch, space-between, space-around */
+    align-self: center;
+}
+</div></code></pre>
+<h3 id="bootstrap">Bootstrap</h3>
 <p>Bootstrap is our friend if you do not like CSS that much. Go to <a href="https://getbootstrap.com/">Bootstrap's Website</a> and follow the instructions to use it. This will simplify the process of creating a much slicker website. <strong>USE THE BOOTSTRAP CDN FOR NOW.</strong></p>
 <hr>
 <p><small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small></p>

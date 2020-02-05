@@ -422,7 +422,16 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
     });
   </script>
 <h1 id="set-up-virtualbox-for-lamp-server-development">Set up virtualbox for LAMP server development</h1>
-<h2 id="setting-up-virtualbox-with-a-ubuntu-vm">Setting up virtualbox with a ubuntu VM</h2>
+<h2 id="optimal-just-run-linux">(Optimal) Just run linux</h2>
+<p>If you have your own machiene, just run some distribution of linux. Real development is easiest when done on linux as you
+will have to do less hacky workarounds.</p>
+<h2 id="wsl">WSL</h2>
+<p>If you are lucky you may be able to install WSL or Windows Subsystem for Linux. This is the linux kernel/ubuntu operating system
+which runs on top of Windows. You can simply install this from the Windows store, and requires a powershell command to be run for
+it to be enabled. I will not be running through that installation in this document because there are many good resources which can
+be found online for installing it.</p>
+<p>If installing through WSL simply skip to the Installing LAMP Stack section.</p>
+<h2 id="setting-up-virtualbox-with-an-ubuntu-vm">Setting up virtualbox with an ubuntu VM</h2>
 <ol>
 <li>Install virtualbox from https://www.virtualbox.org/</li>
 <li>Install all required dependencies</li>
@@ -443,9 +452,9 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
 <h2 id="installing-lamp-stack">Installing LAMP stack</h2>
 <ol>
 <li>Ensure that all packages are installed <code>sudo apt update</code></li>
-<li>Install apache2 <code>sudo apt-get install apache2</code></li>
-<li>Install mysql-server <code>sudo apt-get install mysql-server</code></li>
-<li>Install PHP <code>sudo apt-get install php libapache2-mod-php php-mysql</code></li>
+<li>Install apache2 <code>sudo apt install apache2</code></li>
+<li>Install mysql-server <code>sudo apt install mysql-server</code></li>
+<li>Install PHP <code>sudo apt install php libapache2-mod-php php-mysql</code></li>
 </ol>
 <h2 id="setting-up-apache2">Setting up apache2</h2>
 <ol>
@@ -453,7 +462,7 @@ void 0!==arguments[0]&&(br.sequenceConfig=arguments[0]),e=arguments[1]):e=argume
 <p>Creating a working directory for your project <code>sudo mkdir /var/www/&lt;projectName&gt;</code></p>
 </li>
 <li>
-<p>Create a link for your projecty directory somewhere else so you can work/push to it <code>ln -s /var/www/&lt;projectName&gt; ~/&lt;prohectName&gt;</code></p>
+<p>Create a link for your projecty directory somewhere else so you can work/push to it <code>ln -s  ~/&lt;projectName&gt; /var/www/&lt;projectName&gt;</code></p>
 </li>
 <li>
 <p>Change the ownership of that directory <code>chown g2t:g2t ~/&lt;prohectName&gt;</code></p>
@@ -483,6 +492,12 @@ DocumentRoot /var/www/html/
 # to be the folder you created earlier
 
 DocumentRoot /var/www/&lt;projectName&gt;
+
+## OR
+
+# If you have multiple projects on one server and don't care about proper redirects you can set it to
+
+DocumentRoot /var/www/
 </div></code></pre>
 </li>
 </ol>
@@ -506,7 +521,7 @@ DocumentRoot /var/www/&lt;projectName&gt;
 <p>The ErrorLog and the CustomLog lines can optionally be left without the <DomainName> attribute if you want all of the logs in one file.</p>
 <h2 id="setting-up-mysql">Setting up mysql</h2>
 <ol>
-<li>Optionally run the secure installation script <code>sudo mysql_secure_installation</code></li>
+<li>Optionally run the secure installation script (this will force you to use strong passwords) <code>sudo mysql_secure_installation</code></li>
 <li>Make sur that mysql is running <code>sudo systemctl start mysql</code></li>
 </ol>
 <p>We will go into creating users and databases later in the course.</p>
@@ -573,8 +588,8 @@ phpinfo();
 <li>Change the permissions on the file so it is executable. <code>chmod +x syncScript.sh</code></li>
 </ol>
 <p>Now we can simply run <code>./syncScript.sh</code> anytime we want to sync our project to a folder.</p>
-<h2 id="github">GitHub</h2>
-<p>We will be using github to store the code you work on in class on the web. Once you get more experienced it is more useful to know how to use the git commands, but for now we will be using the github desktop client which can be found <a href="https://desktop.github.com/">here</a>.</p>
+<h2 id="github-only-for-reference">GitHub (ONLY FOR REFERENCE)</h2>
+<p>Once you get more experienced it is useful to know how to use the git CLI, but for now we can use the github desktop client which can be found <a href="https://desktop.github.com/">here</a>.</p>
 <h3 id="setting-up-git">Setting up git</h3>
 <ol>
 <li>
