@@ -17,6 +17,14 @@ There are also some [assignments](https://github.com/Nathan-Nesbitt/G2T/tree/mas
 ## Sample Code
 I will try to post as much of the [code](https://github.com/Nathan-Nesbitt/G2T/tree/master/Code) that I write as possible so you can use it for reference.
 
+## Requirements
+If you are trying to set up the same environment that
+I use in the class:
+
+- Visual Studio Code
+- Live Server and Beautify for Visual Studio Code
+- Windows Subsystem for Linux (WSL)
+
 *If you would like to use these notes, please contact me.* 
 
 ---
