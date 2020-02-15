@@ -1,0 +1,19 @@
+body {
+   background-color: gray; 
+}
+
+header {
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: brown;
+}
+
+main {
+    margin: 1em;
+    padding: 1em;
+}
+
+main > div > p {
+    margin: 1em;
+} 
+  

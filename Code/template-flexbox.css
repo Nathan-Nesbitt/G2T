@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: aquamarine;
+    margin-bottom: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+main > article {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make it so that all figures are centered */
+
+figure {
+    display: flex;
+    flex-direction: column;
+}
+
+figure > img {
+    align-self: center;
+}
+
+figure > figcaption {
+    align-self: center;
+}
+
+/* Sets images to auto height w/ width 200px*/
+
+img {
+    width: 200px;
+    height: auto;
+}
+
+footer {
+    margin: 2em;
+    display: flex;
+    justify-content: center;
+}
