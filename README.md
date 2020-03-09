@@ -26,6 +26,3 @@ I use in the class:
 - Windows Subsystem for Linux (WSL)
 
 *If you would like to use these notes, please contact me.* 
-
----
-<small>© Nathan Nesbitt, 2019. Not to be copied, used, or revised without express written permission from the copyright owner.</small>
