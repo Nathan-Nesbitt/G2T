@@ -10,6 +10,7 @@ This is not intended as a walkthrough but rather an overview of the topics that 
 - Introduction to [JavaScript](https://nathan-nesbitt.github.io/G2T/Notes/05%20JavaScript_G2T_NN.html)
 - Introduction to [PHP](https://nathan-nesbitt.github.io/G2T/Notes/06%20PHP_G2T_NN.html)
 - Introduction to [SQL](https://nathan-nesbitt.github.io/G2T/Notes/07%20SQL_G2T_NN.html)
+- Introduction to [NodeJS](https://nathan-nesbitt.github.io/G2T/Notes/08%20NodeJS_G2T_NN.html)
 
 ## Assignments
 There are also some [assignments](https://github.com/Nathan-Nesbitt/G2T/tree/master/Assignments).
