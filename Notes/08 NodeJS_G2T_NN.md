@@ -128,7 +128,8 @@ entered `name` variable.
 
 ## Working with EJS
 With EJS we can embed JavaScript inside an HTML file. We can do this by wrapping the JavaScript
-in `<% %>` brackets, similarly to how we write PHP code.
+in `<% %>` brackets, similarly to how we write PHP code. If we want to output a value (variable)
+into the file we use the `<%= %>` tags.
 
 ## Looping Through Variables in EJS
 Looping is quite simple, we can just write a javascript loop in a new page that takes in 
