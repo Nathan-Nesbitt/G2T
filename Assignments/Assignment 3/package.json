@@ -1,0 +1,24 @@
+{
+  "name": "assignment3g2t",
+  "version": "1.0.0",
+  "description": "These are my instructional/personal notes for the web development course I teach.\r This is not intended as a walkthrough but rather an overview of the topics that I cover. The outline of the course can be found in the main repo as [outline_G2T_NN.pdf](https://github.com/Nathan-Nesbitt/G2T/blob/master/Outline_G2T_NN.pdf). These are not meant to be used as slides or information for students. I normally prepare/live-code and share the detailed code/notes with the students in the class, which are the actual notes for the session.",
+  "main": "Assignment 3_G2T_NN.js",
+  "scripts": {
+    "start": "nodejs Assignment 3_G2T_NN.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nathan-Nesbitt/G2T.git"
+  },
+  "author": "Nathan Nesbitt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nathan-Nesbitt/G2T/issues"
+  },
+  "homepage": "https://github.com/Nathan-Nesbitt/G2T#readme",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0"
+  }
+}

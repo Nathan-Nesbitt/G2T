@@ -1,17 +1,5 @@
 <html>
 
-<?php
-    // PHP Section to initialize the database variables //
-    $username = "nathan";
-    $password = "password";
-    $database = "G2T";
-    $server = "localhost";
-
-    // Creates a connection //
-
-    $connection = new mysqli($server, $username, $password, $database);
-?>
-
 <head>
     <!-- Imports for bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -27,7 +15,7 @@
     </script>
 
     <!-- Personal Imports -->
-    <link rel="stylesheet" type="text/css" href="public/Assignment 3_G2T_NN.css">
+    <link rel="stylesheet" type="text/css" href="Assignment 3_G2T_NN.css">
 
 
     <title>Nathan's Contact List</title>
@@ -40,7 +28,7 @@
                 <div class="col-sm form-group">
                     <H1>Nathan's Contact List</H1>
                 </div>
-                <form method="post" action="Assignment 3_G2T_NN.php">
+                <form method="post" action="/">
                     <div class="col-sm form-group">
                         <input type="text" class="form-control" name="name" placeholder="Name">
                     </div>
@@ -70,31 +58,14 @@
                         </tr>
                     </thread>
                     <tbody>
-                    <?php
-
-                        /* This displays the user data queried from the database in a table */
-
-                        // Creates the prepared statement //
-                    
-                        $query = $connection->prepare("SELECT * FROM contactList");
-                    
-                        // Execute the statement //
-                    
-                        $query->execute();
-                    
-                        // get the result //
-                    
-                        $result = $query->get_result();
-                    
-                        // Itterate through the results //
-                    
-                        while ($row = $result->fetch_assoc()) {
-                            echo("<tr><th scope='row'>" . $row['name'] . "</th>");
-                            echo("<th>" . $row['email'] . "</th>");
-                            echo("<th>" . $row['phoneNumber'] . "</th>");
-                            echo("<th>" . $row['notes'] . "</th></tr>");
-                        }
-                    ?>
+                    <% contacts.forEach( (contact) => { %>
+                        <tr>
+                            <td scope="col"><%= contact.name %></td>
+                            <td scope="col"><%= contact.email %></td>
+                            <td scope="col"><%= contact.phoneNumber %></td>
+                            <td scope="col"><%= contact.notes %></td>
+                        </tr>
+                    <% }) %>
                     </tbody>
                 </table>
             </div>
@@ -103,43 +74,4 @@
 </body>
 
 </html>
-
-<?php
-
-    // This is the script for creating the data in the database //
-
-    $name = NULL;
-    $email = NULL;
-    $phoneNumber = NULL;
-    $notes = NULL;
-
-    if (isset($_POST['name'])){
-        $name = $_POST['name'];
-    }
-    if (isset($_POST['email'])){
-        $email = $_POST['email'];
-    }
-    if (isset($_POST['phoneNumber'])){
-        $phoneNumber = $_POST['phoneNumber'];
-    }
-    if (isset($_POST['notes'])){
-        $notes = $_POST['notes'];
-    }
-
-    if($name && $email && $phoneNumber && $notes) {
-        $query = $connection->prepare("INSERT INTO contactList (name, email, phoneNumber, notes) VALUES (?, ?, ?, ?)");
-        $query->bind_param('ssss', $name, $email, $phoneNumber, $notes);
-        $query->execute();
-        $result = $query->get_result();
-        
-        // Close the connection //
-        $connection->close();
-        
-        // Redirect back to page to refresh //
-        header('Location:Assignment 3_G2T_NN.php');
-    };
-
-    // Closes the connection
-    $connection->close();
-
-?>
+</div>
