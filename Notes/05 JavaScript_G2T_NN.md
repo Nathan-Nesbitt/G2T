@@ -121,7 +121,7 @@ console.log(C);
 ```
 
 ## Data Types
-There are many different datatypes in javascript. These tend to be quite consistant between languages:
+There are many different datatypes in javascript. These tend to be quite consistent between languages:
 
 - String
 - Number
@@ -141,7 +141,7 @@ For more on data types in javascript you can simply google 'data types in javasc
 
 ## Conditional Statements (IF)
 
-### General Explenation
+### General Explanation
 This is the basis of most computing is checking statements. A statement simply runs code if the value it is checking is true. For example an example in real life:
 ```
 if nathan is awesome:

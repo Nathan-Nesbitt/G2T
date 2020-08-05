@@ -100,7 +100,7 @@ Example (Creates file foo.txt in the home directory):
 touch ~/foo
 ```
 
-`chown` - Changes perosn and group ownership of a file
+`chown` - Changes person and group ownership of a file
 
 ```
 Example (Changes ownership of foo.txt to nathan user and www-data group):
@@ -132,14 +132,14 @@ ssh -p 2222 nathan@localhost
 `rsync` - Remote Sync (transfer files remotely)
 
 ```
-Example (Syncs the cygdrive folder on your local machiene onto the home directory on the server):
+Example (Syncs the cygdrive folder on your local machine onto the home directory on the server):
 rsync -rvz -e 'ssh -p 2222' /cygdrive/c/Users/Nathan/MyProject nathan@localhost:/home/nathan/MyProject
 ```
 
 `sudo` - Runs a command as root
 
 ```
-# Please don't do this in real life, it is bad practise to just assume a required 755 or 777
+# Please don't do this in real life, it is bad practice to just assume a required 755 or 777
 
 Example (runs command chmod as root):
 sudo chmod 755 /var/www/myProject

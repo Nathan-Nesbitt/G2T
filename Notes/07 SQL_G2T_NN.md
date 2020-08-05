@@ -12,7 +12,7 @@ Relational Databases are very efficient if used properly. Companies often use re
 ## What other types of databases are there?
 We will only be discussing relational databases as they are the most commonly used, but it is useful to know of the other types of 'NoSQL' databases:
 
-1. Map Reduce (fault tollerant, distributed database)
+1. Map Reduce (fault tolerant, distributed database)
 
     - Map Reduce is often used for 
     - Hadoop is an example of map reduce
@@ -38,7 +38,7 @@ A Database Management System (DBMS) provides the following qualities:
 - **Efficient**: They are able to process the data without having to touch all values in the DB.
 - **Convenient**: They are easily queried.
 - **Safe**: The DBMS keeps the data secure from intruders and corruption.
-- **Massive**: The DBMS can handle large amounts of datab (>petabytes).
+- **Massive**: The DBMS can handle large amounts of data (>petabytes).
 - **Persistent**: We don't loose the data after a program closes.
 - **Multi-User**: Multiple users can access/insert data at the same time.
 
@@ -229,7 +229,7 @@ SQL Data Management Language and Data Query Language are used to access and modi
 INSERT INTO <tableName> (<column1>, <column2>) VALUES (<value1>, <value2>);
 ```
 
-For example if I wanted to insert 2 phone number into my adressBook from before I could do:
+For example if I wanted to insert 2 phone number into my addressBook from before I could do:
 
 ```
 INSERT INTO phoneNumbers (name, phoneNumber) VALUES ('Nathan', '1112223333'), ('Jeff', '4445556666'); 
@@ -240,13 +240,13 @@ INSERT INTO phoneNumbers (name, phoneNumber) VALUES ('Nathan', '1112223333'), ('
 If we want to change a row that is in the table we can use the update call:
 
 ```
-UDATE <tableName> SET <columnName2> = <value2> WHERE <columnName1> = <value1>;
+UPDATE <tableName> SET <columnName2> = <value2> WHERE <columnName1> = <value1>;
 ``` 
 
 For example if we wanted to update Jeff's phone number to be '7778889999'
 
 ```
-UDATE phoneNumbers SET phoneNumber = '7778889999' WHERE name = 'Jeff';
+UPDATE phoneNumbers SET phoneNumber = '7778889999' WHERE name = 'Jeff';
 ```
 
 ### Delete

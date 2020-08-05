@@ -79,7 +79,7 @@ There is also the option to add *padding* (margin but on the inside of the div).
 
 ## Selecting Elements
 
-Since we want to be able to apply theses styles using CSS, we need to be able to identify which elements should recive the changes. This is done using CSS selectors.
+Since we want to be able to apply theses styles using CSS, we need to be able to identify which elements should receive the changes. This is done using CSS selectors.
 
 ### `*` - (Universal Selector)
 
@@ -468,7 +468,7 @@ Position relative to its normal position.
 Positioned based on where the user has scrolled.
 
 ### Using positioning to overlap elements
-If we have 2 images and we want them to overlap we can use relative/absolute positioning to ensure that the images overlap eachother. The
+If we have 2 images and we want them to overlap we can use relative/absolute positioning to ensure that the images overlap each other. The
 following code shows the image with ID image2 20 pixels to the left and
 20 pixels up:
 
@@ -508,7 +508,7 @@ If we want to use flexbox, we need to imagine that we have a parent, which we wi
 }
 ```
 
-#### (Parent) Chnaging the direction
+#### (Parent) Changing the direction
 The elements inside of the container can either be placed horizontally or vertically (and also reverse of the two). We can do this by saying:
 
 ```
@@ -529,7 +529,7 @@ Now what happens if we have too much data to fit on 1 line? We can simply use `f
 ```
 
 #### (Parent) Aligning Items Horizontally 
-With flexbox if we want to have the children of some element to have a cetain horizontal layout, for example if we want them all to be spaced evenly to fill the entire parent, we can specify this using `justify-content`:
+With flexbox if we want to have the children of some element to have a certain horizontal layout, for example if we want them all to be spaced evenly to fill the entire parent, we can specify this using `justify-content`:
 
 ```
 .container {

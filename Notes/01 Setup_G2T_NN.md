@@ -1,7 +1,7 @@
 # Set up virtualbox for LAMP server development
 
 ## (Optimal) Just run linux
-If you have your own machiene, just run some distribution of linux. Real development is easiest when done on linux as you
+If you have your own machine, just run some distribution of linux. Real development is easiest when done on linux as you
 will have to do less hacky workarounds.
 
 ## WSL
@@ -37,7 +37,7 @@ Once the server has rebooted, we now want to ensure that all packages are update
 ## Setting up apache2
 1. Creating a working directory for your project `sudo mkdir /var/www/<projectName>`
 2. Create a link for your projecty directory somewhere else so you can work/push to it `ln -s  ~/<projectName> /var/www/<projectName>`
-3. Change the ownership of that directory `chown g2t:g2t ~/<prohectName>`
+3. Change the ownership of that directory `chown g2t:g2t ~/<projectName>`
 2. Create a temporary file to show that it is working `sudo touch ~/<projectName>/index.html`
 3. Open the index file you created `vim ~/<projectName>/index.html`
 4. Write the 'hello world' to the index file so it looks like...
@@ -119,7 +119,7 @@ Now if you go to `localhost:8080/test.php` the PHP info page should show up. **D
 For the following example we are going to be using unix commands to transfer and connect to our server/VM. Since we need to use SSH and rsync to connect and transfer files, the 'easiest' way of getting these tools is to install the WSL or [windows subsystem for linux ](https://docs.microsoft.com/en-us/windows/wsl/install-win10) or, if you are working in an environment where you cannot install WSL, you can use [Cygwin](https://www.cygwin.com/). Since in the current environment we cannot install WSL, the following steps will outline the cygwin installation process.
 
 1. Go to the Cygwin site and download the Windows executable
-2. Follow the instructions for the basic installation, until you get to the avavilble download sites
+2. Follow the instructions for the basic installation, until you get to the available download sites
 3. Choose a domain to download from (e.g. mirroir.csclub.waterloo.ca)
 4. Change the view from *pending* to *not installed*
 5. Search for `rsync` and `openssh`
@@ -143,7 +143,7 @@ This will ask you for a password, and then will allow you to remote connect in. 
 
 ## Setting up rsync
 
-Rsync is a useful command for syncing files between two devices. In our case, we are going to be writing code on our devices and will be transfering it to our server (the VM). We don't want to have to manually move the files every time we make a change, so we can write a little script to run every time to update the files on the server using rsync.
+Rsync is a useful command for syncing files between two devices. In our case, we are going to be writing code on our devices and will be transferring it to our server (the VM). We don't want to have to manually move the files every time we make a change, so we can write a little script to run every time to update the files on the server using rsync.
 
 ### How to use rsync
 

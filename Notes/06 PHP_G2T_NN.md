@@ -51,7 +51,7 @@ $newVariable = "This is a string";
 ## Operators
 There are some basic operators in PHP just like any other language. 
 
-### Arethmatic Operators
+### Arithmetic Operators
 
 ```
 +  - Addition
@@ -125,7 +125,7 @@ $NathanAge = 5;
 ```
 
 ### Global
-Globals are avalible at any point in the program. You can define a global with
+Globals are available at any point in the program. You can define a global with
 
 ```
 global $NathanAge = 10;
@@ -247,7 +247,7 @@ $query->execute();
 $result = $query->get_result();
 ```
 
-### 4. Itterating through the values from the query
+### 4. Iterating through the values from the query
 
 ```
 while($row = $result->fetch_assoc()){
@@ -286,7 +286,7 @@ For example a completed program to query all phone numbers from a database `phon
     
     $result = $query->get_result();
 
-    // Itterate through the results //
+    // Iterate through the results //
 
     while($row = $result->fetch_assoc()){
         echo($row['phoneNumber']);

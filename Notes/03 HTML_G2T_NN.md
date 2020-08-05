@@ -298,7 +298,7 @@ other tags to organize the page.
 A div is what we will be using to create divisions in our page. 
 <div style="float: right">
     <p>This allows me to put objects in weird places</p>
-    <p>And do it consistantly for all objects inside of a div</p>
+    <p>And do it consistently for all objects inside of a div</p>
 </div>
 
 ### `<section>`
@@ -484,7 +484,7 @@ Emphasizes text
 
 ### `<i>`
 
-Italicises the text
+Italicizes the text
 
     <i>i<i>
 
