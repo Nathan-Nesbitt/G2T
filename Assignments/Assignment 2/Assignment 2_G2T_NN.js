@@ -1,14 +1,13 @@
 /** 
  * 
- * This is a reverse polish notation calculator object. 
+ * Author: Nathan Nesbitt
+ * Date: 2020-10-27
  * 
- * The idea behind a RPN calculator is that you enter
- * the values, they get added to a stack, and then you 
- * "pop" off the values from the stack as you add operators.
- * This is much simpler than a regular calculator, as it does
- * not require recursion to handle more than 2 values. So the
- * last number will be applied to the operator along with whatever 
- * number is currently in the register.
+ * This is a basic calculator in JavaScript, it works similarly
+ * to how the microsoft calculator works. It stores the first 
+ * value entered, then stores the operator when it is entered,
+ * then it strips the second number and does the calculation
+ * when you press enter. 
  *  
  * */ 
 
@@ -16,23 +15,33 @@ class Calculator {
     
   // This gets the display for the calculator //
   display = document.getElementsByClassName('screen')[0];
-  stack = [];
+  // First value entered //
+  firstNumber = null;
+  // Operation to be performed //
+  operation = null;
 
   clear() {
-    
     // Function that resets the display to show 0 //
-    
     this.display.value = '0';
-    
   }
 
-  enter() {
+  enter(number) {
     
     // Adds the current value onto the stack
-    this.stack.push(this.display.value);
-    this.clear();
-    console.log(this.stack);
-  
+    if (!this.firstNumber || !this.operation)
+      return false;
+
+    this.calculateValue(number);
+    this.firstNumber = null;
+    this.operation = null;
+  }
+
+  storeNumber(number) {
+    this.firstNumber = number;
+  }
+
+  storeOperator(operator) {
+    this.operation = operator;
   }
 
   numberHandle(number) {
@@ -43,52 +52,59 @@ class Calculator {
   }
 
   operatorHandle(operator) {
+    // Store the operator
+    this.operation = operator;
+    // Display the operator on the screen
+    this.display.value += String(operator)
+  }
+
+  calculateValue(number) {
 
     // Gets the top two values from the stack, does the operation, and prints them //
-    if (this.stack.length < 2)
+    if (!this.firstNumber || !this.operation)
       return false;
 
-    var value_1 = this.stack.pop()
-    var value_2 = this.stack.pop()
-    if(operator === "/"){
-      this.display.value = String(value_1 / value_2)
+    if(this.operation === "/"){
+      this.display.value = String(this.firstNumber / number)
       return true;
     }
-    if(operator === "*") {
-      this.display.value = String(value_1 * value_2)
+    if(this.operation === "*") {
+      this.display.value = String(this.firstNumber * number)
       return true;
     }
-    if(operator === "+"){
-      this.display.value = String(parseInt(value_1) + parseInt(value_2));
-      
+    if(this.operation === "+"){
+      this.display.value = String(parseInt(this.firstNumber) + parseInt(number));
       return true;
     }
-    if(operator === "-"){
-      this.display.value = String(value_1 - value_2)
+    if(this.operation === "-"){
+      this.display.value = String(this.firstNumber - number)
       return true;
     }
   }
 
   decimalHandle() {
-    
     // Adds a decimal to the current value in the calculator //
-    
     this.display.value += ".";
-    
   }
 
   calculate(){
     
-    // This runs the main calclation script //
+    // This runs the main calculation script //
     
     document.addEventListener('click', (event) => {
 
       const { target } = event;
 
       if (target.classList.contains('enter')) {
-        this.enter(target.value)
+        // We have to strip the input so we only have #2, I would probably just
+        // give the students this as it is a little more complicated
+        var secondNumber = String(this.display.value).split(this.operation)[1] 
+        this.enter(secondNumber)
       }
       else if (target.classList.contains('operator')) {
+        // We are going to get the number from the input //
+        this.firstNumber = this.display.value;
+        // Then we are going to handle the operator //
         this.operatorHandle(target.value);
       }
 
@@ -103,7 +119,6 @@ class Calculator {
       else if (target.classList.contains('clear')) {
         this.clear(target.value);
       }
-
     });
   }
 }
